@@ -1,19 +1,5 @@
 \documentclass[a4paper,10pt,twocolumn,fleqn]{jarticle}
-
- %%%%%%%%     プリアンブル     %%%%%%%%
 \usepackage{houkoku}
-
- %%%%%%%%     マージン調整     %%%%%%%%
-\setlength{\textwidth}{180mm}
-\setlength{\columnsep}{10mm}
-\setlength{\textheight}{260mm}
-\setlength{\topmargin}{-45mm}
-\addtolength{\topmargin}{25mm}
-\setlength{\oddsidemargin}{-1in}
-
-\addtolength{\oddsidemargin}{16mm}
-\setlength{\evensidemargin}{-1in}
-\addtolength{\evensidemargin}{16mm}
 
 %%%%%%%%%%% 報告書番号 %%%%%%%%%%%%%
 \newcommand{\Reportnum}[0]{1}%報告書番号
@@ -28,7 +14,7 @@
 }
 \makeatother
 \pagestyle{myplain} %ページスタイル
-
+\graphicspath{{./fig/}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
@@ -44,16 +30,40 @@
 \vspace{2zw}
 ]
 
-\section{報告内容}
-説明。
+\section{今回の報告}
+\begin{itemize}
+	\item 報告会資料フォーマット作成
+\end{itemize}
+
+\section{本フォーマットの使い方}
 \begin{enumerate}
 	\item 日本語用報告会テンプレです。
-	\item ２カラムです。
+	\item ２カラムです。１カラムにする場合は
+	\begin{lstlisting}[basicstyle=\ttfamily\footnotesize, frame=single]
+\onecolumn
+%\twocolumn[
+\begin{flushright}
+\today\\
+東京大学　堀藤本研究室　XX XX
+\end{flushright}
+\begin{center}
+{\LARGE 報告会 (\Reportnum)}
+\end{center}
+\vspace{2zw}
+%]	
+\end{lstlisting}
 	\item \begin{verbatim*}
 	\Reportnum
 	\end{verbatim*}の所の数を変えることで報告会番号を調整します。
 	\item XXのところを自分の名前に合わせて整形して見ましょう。
 \end{enumerate}
+
+
+
+\section{今後の予定}
+\begin{itemize}
+	\item hoge
+\end{itemize}
 
 
 \end{document}
