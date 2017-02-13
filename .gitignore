@@ -1,0 +1,7 @@
+### LaTeX
+*.aux
+*.blg 						
+*.dvi
+*.log
+*.gz
+
