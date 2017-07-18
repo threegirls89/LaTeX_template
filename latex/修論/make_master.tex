@@ -1,0 +1,157 @@
+\documentclass[fleqn]{jreport}%<--- class はjreport
+%package%{{{
+\usepackage{sotsuron_14}         %<----- 修論、卒論用のスタイルファイル
+
+% いつもの奴ら。 ここもpreamble.texに書こう
+\usepackage{booktabs}
+\usepackage[dvipdfmx]{graphicx,color}
+%\usepackage[dvipdfmx]{color}
+\usepackage{amsmath}
+\usepackage{ascmac}
+\usepackage{times}
+\usepackage{epsf}
+\usepackage{verbatim}
+\usepackage{subfigure}
+\usepackage{multicol}
+\usepackage{pifont}
+\usepackage{mathtools} % dcases を使う
+
+%ハイパーリンク  以下も参照：http://ossyaritoori.hatenablog.com/entry/2016/11/11/%E3%80%90Tex%E3%80%91%E5%8D%92%E8%AB%96%E4%BF%AE%E8%AB%96%E3%81%AB%E3%81%AF%E6%98%AF%E9%9D%9E%E3%83%8F%E3%82%A4%E3%83%91%E3%83%BC%E3%83%AA%E3%83%B3%E3%82%AF%E6%A9%9F%E8%83%BD%E3%82%92%E3%81%A4
+\usepackage[dvipdfmx, bookmarkstype=toc, colorlinks=false, pdfborder={0 0 0}, bookmarks=true, bookmarksnumbered=true]{hyperref}
+\usepackage{pxjahyper}
+
+
+% 修論用
+\usepackage{docmute} %単体でコンパイルできるようにする
+
+\renewcommand{\bf}{\bfseries}
+\renewcommand{\gt}{\gtfamily}
+\renewcommand{\sf}{\sffamily}
+
+% algorithmicのstyファイルはデフォルトで存在しないので使わないならコメントアウトしてよし
+\label{alg1}   
+\usepackage{algorithm}
+\usepackage{algorithmic}
+%\newcommand{\AND}{\algorithmicand{} }
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+
+%諸々の定義 -> preamble.texに書く。
+
+\newcommand{\bm}[1]{\mbox{\boldmath $#1$}}
+\newcommand{\eq}[1]{(\ref{eq:#1})}
+\newcommand{\zu}[1]{\fig{#1}}
+\newcommand{\shiki}[1]{式(\ref{eq:#1})}
+\newcommand{\fig}[1]{Fig.\ \ref{fig:#1}}
+\newcommand{\grp}[1]{Fig.\ \ref{grp:#1}}
+\newcommand{\tb}[1]{Tab.\ \ref{tb:#1}}
+\newcommand{\defeq}{:=}
+\newcommand{\bvec}[1]{\mbox{\boldmath $#1$}} %太字
+\newcommand{\tvec}[1]{\bvec{#1}^{\mathsf{T}}} %太字転置
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+
+\renewcommand{\figurename}{Fig.}
+\renewcommand{\tablename}{Tab.}
+\graphicspath{{./fig/}} %図はきちんと別のファイルにおいておこう。
+\usepackage{url}
+
+\def\vector#1{\mbox{\boldmath $#1$}}
+
+%%%%%%%%%%%%%%%%%  表紙 %%%%%%%%%%%%%%%%%%%
+\thesis{
+	{\large
+		東京大学 \ 大学院新領域創成科学研究科\\
+		基盤科学研究系\\
+		先端エネルギー工学専攻\\
+	}
+	\vskip 3em
+	平成28年度\\
+	\vskip 1em
+	修士論文 \\
+}
+\title{\LARGE
+	イメージヤコビアンの特性に着目した特徴量の選択に基づく
+	イメージベースビジュアルサーボの性能向上とその応用に関する研究
+	\smallskip
+	\large\bf
+}
+\date{\large
+	2017年1月30日提出 \\
+}
+\vskip -3em
+\professor{\large
+	藤本　博志 准教授\\
+}
+
+\author{\Large
+%	47-156090
+　李　尭希
+}
+
+
+
+%$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ YNU report paper size $$$$$$$$$$$$$$$$$$$$$$
+\topmargin -15mm
+\oddsidemargin -0.1in \evensidemargin -0.1in
+\baselineskip7.833mm
+\textheight 25.2cm
+\textwidth 17cm
+
+
+
+
+\begin{document}
+\maketitle
+\maegaki
+\include{chapter/00_Abstract4} %見ての通りアブスト
+%
+%
+\maetsuke
+\tableofcontents
+\listoffigures
+\listoftables
+
+%%%%%%%%%%%%%%%%%%%%     このあたりから本文    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\hombun
+\include{chapter/Introduction}
+%\include{chapter/VisualServo}
+\include{chapter/Sencitivity}
+\include{chapter/PhaseCorrelation}
+\include{chapter/POCbasedVisualServo}
+\include{chapter/VideoTracking}
+\include{chapter/conclusion}
+
+\newpage
+\phantomsection
+\addcontentsline{toc}{chapter}{謝辞}
+\include{chapter/Thanks}
+\newpage
+\phantomsection
+\addcontentsline{toc}{chapter}{参考文献}
+%\bibliographystyle{ieeetran}
+\bibliographystyle{tieice}
+\bibliography{ref}
+\newpage
+\phantomsection
+\addcontentsline{toc}{chapter}{発表文献}
+\include{Present/Present}
+
+%\gakkai         %ここから発表文献
+%\include{chapter/10_Present}
+%
+%
+\appendix       %ここから付録
+\newpage
+\phantomsection
+\addcontentsline{toc}{chapter}{付録}
+\include{chapter/Appendix}
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document} 

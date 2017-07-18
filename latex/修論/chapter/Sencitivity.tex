@@ -1,0 +1,313 @@
+\documentclass[fleqn]{jreport}
+\input{preamble.tex}
+
+\begin{document}
+\chapter{冗長な特徴点を用いたビジュアルサーボの性能向上}\label{Sencitivity}
+本稿では序論で述べた特徴点ベースの手法と領域ベースの手法のうち，特徴点を用いたイメージベースビジュアルサーボの手法について考察を行う。
+
+\section{特徴点の個数に関する考察}
+特徴点の個数について，6自由度の制御を行う場合にはイメージヤコビアンのランク落ちを防ぐために最低4つ必要であることがよく知られている\cite{Chaumette2006}。
+したがってマーカを用いる場合には４つ以上の点を持つマーカを作成して必要な特徴点を得ていた。
+
+一方で，近年発展しているSIFT\cite{Lowe1999}等の高度な特徴点抽出手法を用いることで画像内から4つ以上の冗長な特徴点を抽出できる。
+本章ではこれらの冗長な特徴点を活用することでビジュアルサーボの性能を向上させることを目指す。
+
+
+\subsection{感度の定義と冗長特徴点による感度の上昇 }
+すでに文献\cite{Hashimoto1998}において，冗長な特徴点を制御に用いることによってタスク実現の速度や精度を改善できる事が示されている。
+
+ここでは文献に倣って感度の定義と冗長に特徴点を取ることにより感度が上昇することを数式で証明する。
+
+今，$\Delta \xi$,$\Delta X$をそれぞれ特徴量ベクトルと関節角（ロボットの位置）の微小変動とする。
+本章で述べるところの感度$\beta$は$\Delta X$の変動分$v$に対する$\Delta \xi$の変動の下界であると定義する。
+即ち，
+\begin{equation}
+	\beta=\inf\{ \| \Delta\xi \|_2:\| \Delta X \|_2=1 \}
+	\label{eq:beta_def}
+\end{equation}
+
+今，目標値付近において固定したイメージヤコビアン$\bm{J}_d$を用いることで
+これらの変数の関係は次のように示せる。
+\begin{equation}
+	\Delta \xi = J_d \Delta X = J_d v
+	\label{eq:Jacob}
+\end{equation}
+
+この関係式において先ほどの感度$\beta$は\shiki{beta_jacob}のように表される。
+\begin{equation}
+	\beta = \sigma_{min}(\bm{J}_d)
+	\label{eq:beta_jacob}
+\end{equation}
+ここで$\sigma_{min}(\bm{J}_d)$は$\bm{J}_d$の最小特異値である。
+すなわち感度$\beta$は実空間での動き$v$に対して特徴量$\xi$が最も動きにくい場合のゲインの下限を示す値である。
+
+感度が低い方向の動きに対しては，画像内でそれを検知することは難しく，またその方向へとロボットを駆動するにはより大きな画像内での指令値を必要とする問題がある。
+
+\subsection{冗長な特徴点の使用による感度の上昇}
+新たに特徴ベクトル$\xi$の数を増やすことによって感度$\beta$を上げられることが以下のように証明できる。
+
+先ほどの\shiki{Jacob}において特徴点の個数が$n$の時のイメージヤコビアン$J_{n}$とすると，
+特徴点の個数を増やして冗長性を増した$J_{n+1}$は$J_{n}$に新たな行を$J^{(n+1)}$を加えた次のような形になる。
+\begin{align}
+	J_{n+1} = \left[
+	\begin{matrix}
+		J_n \\
+		J^{(n+1)}
+	\end{matrix}
+	\right]
+\end{align}
+任意のベクトル$\bm{w}$に対して次の不等式が成り立つのは自明であるため，
+\begin{equation}
+	\| \bm{J}_{n+1}\bm{w} \|_2 \geq \| \bm{J}_n\bm{w} \|_2
+\end{equation}
+$\bm{w}$ に対して $\bm{v}$を代入した場合，\shiki{beta_def}から
+\begin{equation}
+	\sigma_{min}(\bm{J}_{n+1}) \geq \sigma_{min}(\bm{J}_n)
+	\label{eq:beta_grow}
+\end{equation}
+が導ける。ここで，\shiki{beta_grow}において等式が成り立つのは新たに追加した特徴点がカメラの3次元における変位$\Delta X =v$に全く反応しない時，即ち$J^{(n+1)} v=0$の時である。
+
+従って，新たに追加した特徴点がカメラの運動$\Delta X =v$に反応する時，感度$\beta$は常に増加する。
+この時，n個の特徴点とn+1個の特徴点が同じ偏差を与えるならばロボットの空間での偏差はn+1個の特徴点を用いた方が必ず小さくなる。
+
+\section{冗長特徴点を用いた際の精度の向上に関する考察}
+複数の特徴点を用いることによって感度，すなわちイメージヤコビアンの最小特異値が上昇することが式によって示された。
+また，最適制御の制御則を用いた実験によっても収束速度の向上が見られるが，精度の観点からは検証されていない。
+
+本研究では特徴点を冗長に取ることによる精度の向上を幾つかのこれの結果をシミュレーションで模擬することを考える，
+
+
+\subsubsection{ピンホールカメラの透視変換モデルに基づく量子化誤差のモデリング}
+実際の実験環境下においては特徴点の位置を変化させる様々な誤差が考えうる。
+例えば，カメラのレンズの歪みなどにより光軸中心から遠いほど生じる非線形な誤差が生じることはよく知られている\cite{Corke2011}。
+
+また，レンズの歪みを補正したとしても撮像素子上に透過する光量はピクセル値で離散化されるため，たとえ何らかの線形補間などを行ったとしても一定量の量子化誤差が生じる。
+SIFTやSURFを始めとした輝度値の微分を用いた特徴点の抽出手法は関数フィッティングを行うことでサブピクセル精度で特徴点の位置を取得可能である\cite{Lowe2004}であるが，
+依然として量子化誤差の問題は存在する。
+
+その他にも注視点が実際には厳密には点ではなくある面積をもった空間だった場合に生じる特徴点の座標における「あそび」なども特徴量の誤差として考えうる。
+
+本研究ではそのうち，量子化誤差に着目して量子化誤差の存在下でビジュアルサーボの性能の変化を議論する。
+
+%本章ではカメラの透視変換とそれに基づく分解能に起因する量子化誤差とランダムな位置の変動の2つをモデル化し，シミュレーションにより特徴点の個数に依る，誤差の収束の様子を観測する。
+
+
+
+\zu{cameramodel}に示すピンホールカメラの撮像モデルから，あるカメラ空間上の点$(x,y,z)$に存在する物体が焦点距離$f$のカメラ素子に映し出される点の座標$(\xi_x,\xi_y)$は次のような関係で示され，これを透視変換と呼ぶ。
+\begin{eqnarray}
+	\left(
+	\begin{array}{c}
+		\xi_x\\
+		\xi_y
+	\end{array}
+	\right)
+	=\left(
+	\begin{array}{ccc}
+		f\dfrac{x}{z}\\[1.5ex]
+		f\dfrac{y}{z}
+	\end{array}
+	\right)
+	\label{eq:透視変換}
+\end{eqnarray}
+
+ただし，$f$はカメラの焦点距離，$z_0$は基準画像においてカメラと撮像対象との間の距離を表す定数である。
+
+\begin{figure}[t]
+	\includegraphics[width=0.8\textwidth]{cameramodel.eps}
+	\centering
+	\caption{カメラの透視変換}
+	\label{fig:cameramodel}
+\end{figure}
+
+これは理想的なピンホールカメラの場合のみ成り立ち，より正確に扱う場合はキャリブレーションして求めたカメラの内部パラメータを用いる必要があるが，本章では単純化のためにこのモデルを用いる。
+
+
+カメラの分解能に起因する量子化誤差を計算した特徴点の座標値を適宜丸めることで模擬する。
+
+
+%画像ノイズや特徴領域のあそびによる誤差は座標にある振幅を持ったガウシアンノイズを載せることによって模擬する。
+
+
+
+\subsection{シミュレーションに基づく最終位置決め誤差の変動の評価}
+特徴点を用いた4自由度のイメージベースビジュアルサーボにおいて，先程の量子化誤差を与えた際に生じる誤差と冗長特徴点を用いた際の最終位置決め誤差の検証を行った。
+プログラムはMATLAB上で作成し，量子化誤差はMATLABの丸め関数roundを用いて最も近い変数に対して発生させた。
+
+この時，ロボットの4自由度の動きと特徴点座標の関係を表すイメージヤコビアンは
+\begin{eqnarray}
+	\bm{J}_{i}=
+	\left[
+	\begin{array}{cccc}
+		-\dfrac{f}{Z_i} & 0 & \dfrac{x_i}{Z_i} & -y_i\\[1.5ex]
+		0 & -\dfrac{f}{Z_i}  & \dfrac{y_i}{Z_i} & x_i
+	\end{array}
+	\right]
+	\label{eq:jacobian2}
+\end{eqnarray}	
+を特徴点の数$m$個だけ縦に並べた$2m \times 4$の行列になっている。
+
+
+シミュレーションにおいて，最初に空間上に特徴点をランダムに配置し，目標位置における特徴点の座標の目標値を取得，その後に指定された数の特徴点を使用してビジュアルサーボを行う。
+その際，変動させるパラメータは使用する特徴点の数と量子化誤差計算における有効な桁数の2つである。
+
+
+はじめに，量子化誤差の模擬において，特徴点座標を整数値で丸めた場合について特徴点の個数による時間応答と最終位置決め精度を評価する。
+評価値として位置指令に対して応答が静定した後の最終位置決め誤差の2ノルム$E =\Sigma \bm{e}_i^2 $ を用いており，3次元位置偏差の2ノルムを3D Error，2次元特徴量偏差の2ノルムを2D Errorとする。
+
+また，シミュレーション条件を\tb{冗長}に示す。特徴点の点群は表に示すある3次元座標を中心にランダムに一様になるように配置する。
+
+\begin{table}[!t]
+	\begin{center}
+		\begin{tabular}{c|c} \hline \hline
+			Sampling time& 10ms\\ \hline
+			Reference pose $(X_0,Y_0,Z_0,\Theta_0)$ & (0,0,0,0) \\ \hline
+			Initial pose $(X_1,Y_1,Z_1,\Theta_1)$ & (10,-10,5,-5) \\\hline
+			Focal length $f$ & 10 \\\hline
+			Center of points cloud $(X,Y,Z)$ & (0,0,30) \\\hline
+			Feedback Gain$(G_X,G_Y,G_Z,G_\Theta)$ & $(10,10,10,5)$\\ \hline \hline
+		\end{tabular}
+		\caption{シミュレーションにおける諸変数}
+		\label{tb:冗長}
+	\end{center}
+\end{table}
+
+
+\zu{hikaku2}に異なる特徴点数$NP$を用いた際，それぞれの特徴点数において位置偏差が時間とともに収束する様子を示す。
+
+量子化誤差が存在するため偏差は0へと収束せず，一定の偏差をもって静定する。
+\zu{hikaku2}の比較より制御に用いる特徴点の個数を増やしていくほど位置偏差は減少していくことがわかる。
+これはすなわち，分解能の低い撮像素子を用いた場合においても，制御に用いる点を冗長に取ることによって分解能の高い撮像素子と同じ結果を得ることができることを示している。
+
+このことは，\zu{AC0_NP2to30}に示すような横軸に特徴点の数，縦軸に最終位置偏差をプロットしたものからも読み解くことができる。
+偏差がところどころ上下し，点の増加に伴い単調減少していかない理由は最終位置決め方向へのベクトルのイメージヤコビアン行列の特異ベクトルの値にばらつきがあるためと推測される。
+この結果はすなわち，先の章で述べた感度の指標は個々の位置制御のケースに対して必ずしも偏差の減少を一意に対応付けるものではないことを示している。
+
+
+最後に，特徴点の配置を変えて同様のシミュレーションを400回繰り返した場合の特徴点数と偏差の平均的動向を\zu{beta_Xonly_AV_0}と\zu{beta_Xonly_AV_1_new}に示す。
+複数のケースを平均した場合には特徴点の数を増加させた場合に偏差が単調減少していく傾向をもつことが読み取れる。
+
+
+
+以上の結果より，特徴点の数を増やすことによって必ずしも希望する位置への収束偏差を減らすことが可能であるわけではないが，平均的には偏差を減少させうるということが示された。
+
+\begin{figure}[!p]
+	\centering
+	\subfigure[AC=0，NP=2の時の時間応答]{
+		\scalebox{0.500}{
+			\includegraphics{AC0_NP2.eps}}
+		\label{fig:AC0_NP2}}
+	\subfigure[AC=0，NP=3の時の時間応答]{
+		\scalebox{0.500}{
+			\includegraphics{AC0_NP3.eps}}
+		\label{fig:AC0_NP3}}
+	\subfigure[AC=0，NP=4の時の時間応答]{
+		\scalebox{0.500}{
+			\includegraphics{AC0_NP4.eps}}
+		\label{fig:AC0_NP4}}
+	\subfigure[AC=0，NP=5の時の時間応答]{
+		\scalebox{0.500}{
+			\includegraphics{AC0_NP5.eps}}
+		\label{fig:AC0_NP5}}
+	\subfigure[AC=0，NP=10の時の時間応答]{
+		\scalebox{0.500}{
+			\includegraphics{AC0_NP10.eps}}
+		\label{fig:AC0_NP10}}
+	\subfigure[AC=0，NP=20の時の時間応答]{
+		\scalebox{0.500}{
+			\includegraphics{AC0_NP20.eps}}
+		\label{fig:AC0_NP620}}
+	\caption{制御に冗長な特徴点の座標を入力することによって徐々に最終位置決め精度が向上していく様子}
+	\label{fig:hikaku2}
+	%	\includegraphics[width=0.45\textwidth]{AC1_NP2to30.eps}\label{fig:AC1_NP2to30}
+	%	\caption{小数以下丸め桁AC=1の時の，特徴点の増加に伴う感度$\beta$の上昇と位置決め誤差の低減}
+\end{figure}
+
+
+\begin{figure}[t]
+	\centering
+	\includegraphics[width=0.6\textwidth]{AC0_NP2to30.eps}\label{fig:AC0_NP2to30}
+	\caption{小数以下丸め桁AC=0の時の，特徴点の増加に伴う感度$\beta$の上昇と位置決め誤差の低減}
+\end{figure}
+
+\begin{figure}[t]
+	\centering
+	\includegraphics[width=0.6\textwidth]{beta_Xonly_AV_0.eps}\label{fig:beta_Xonly_AV_0}
+	\caption{小数以下丸め桁AC=0の時の，特徴点の増加に伴う感度$\beta$の上昇と位置決め誤差の低減の平均的動向}
+	\includegraphics[width=0.6\textwidth]{beta_Xonly_AV_1_new.eps}\label{fig:beta_Xonly_AV_1_new}
+	\caption{小数以下丸め桁AC=1の時の，特徴点の増加に伴う感度$\beta$の上昇と位置決め誤差の低減の平均的動向}
+\end{figure}	
+
+
+
+\section{冗長な特徴点によるガウシアン誤差の低減}
+量子化誤差と同様に検出した特徴点の座標に対してガウシアン誤差が存在したときのシミュレーションを行った。
+ガウシアン誤差は全ての特徴点の位置と時間経過に対して独立で，分散は固定されているとする。
+
+この際も同様に時系列で生じるノイズに対して，冗長に特徴点を取ることでこれを低減することが出来ることを示した。
+\begin{figure}[!t]
+	\centering
+	\includegraphics[width=10cm]{gauss_kekka.eps}
+	\caption{ガウシアンノイズを加えた場合の位置の時間波形}
+	\includegraphics[width=10cm]{For_gaussian_noise.eps}
+	\caption{特徴点の数を増やした時の収束精度}
+\end{figure}
+
+\begin{figure}[!t]
+	\centering
+	\includegraphics[width=10cm]{For_gaussian_noise_ave20_val1e-1.eps}
+	\caption{特徴点の数を増やした時の収束精度を20回平均したもの（分散0.1）}
+	\includegraphics[width=10cm]{For_gaussian_noise_ave20_val2e-1.eps}
+	\caption{特徴点の数を増やした時の収束精度を20回平均したもの（分散0.2）}
+\end{figure}
+
+\section{特徴点の個数に関する簡易的な考察}
+これらの結果の考察において，
+平均的な動向を確認すると\zu{ac0fitted2d}や\zu{ac1fitted2d}に示すとおり，特徴点の個数$n$に対して，反比例の形$\frac{a}{n}+b$で最終位置決め誤差をうまくフィッテイングすることができるように思われる。
+
+統計学において，大数の法則から計測点を増やすことで誤差の分布を縮小することが可能であり，今回のシミュレーションの結果である制御に用いる点を増加させることで位置決め誤差を低減するモデルは非常に似通っていると思われる。
+今後の課題として，計算量等のペナルティを課すことによって最適な特徴点の個数を決定づける方法が考えうる。
+その上で特徴点の取得する位置によっても前章で定義した感度が変化することが知られており，その解析に基づく特徴点の選択の手法を提案することが可能と考える。
+
+
+\begin{figure}[t]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/AC0fitted2D}
+	\caption{\fig{AC0_NP2to30}における特徴点の個数と最終位置決め誤差の平均的動向を反比例の関数$\frac{a}{n}+b$でフィッティングしたもの。}
+	\label{fig:ac0fitted2d}
+\end{figure}
+
+
+\begin{figure}[t]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/AC1fitted2D}
+	\caption{\fig{AC1_NP2to30}における特徴点の個数と最終位置決め誤差の平均的動向を反比例の関数$\frac{a}{n}+b$でフィッティングしたもの。}
+	\label{fig:ac0fitted2d}
+\end{figure}
+
+
+\begin{figure}[t]
+	\centering
+	\includegraphics[width=0.7\linewidth]{Gaussian1_2d}
+	\caption{ガウシアン誤差を加えた場合の特徴点の数と最終位置決め誤差の平均的動向を反比例の関数でフィッティングしたもの}
+	\label{fig:gaussian12d}
+\end{figure}
+
+%\subsection{実験に基づく検証}
+
+%\section{特徴点の画像内の位置に関する考察}
+%特徴点の数を増やすことによってイメージヤコビアンの最小特異値が増加し，結果として動きの精度が向上することは確認できた。
+%続いて，特徴点の位置と配置に関して考察を行った。
+%
+%人間の感覚的には，全体としてバランスの良い配置が望ましく，また画像の中心点に点が寄るほど，距離方向への変位に対して鈍感になること等が予想される。
+%
+%
+%
+%１つ１つの点に対応する
+%\shiki{Jacob基本}
+%%\shiki{Jacob基本}
+%に示すイメージヤコビアンについて計算すると行列のRankが
+%動きの自由度に対して足りずに意味の抽出しづらい結果になるので
+%Rankを動きの自由度である6以上にするように必要最低限の点を事前に配置した上で，次に追加する点を選び，その点を追加したことで感度がどれほど向上するかをもってこれを評価した。
+
+
+\end{document}
