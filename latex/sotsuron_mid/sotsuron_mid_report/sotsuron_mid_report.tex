@@ -1,0 +1,120 @@
+\documentclass[10pt,onecolumn,fleqn]{jsarticle}
+
+\usepackage{newtxtext}
+\usepackage[varg]{newtxmath}
+
+\usepackage[dvipdfmx]{graphicx}
+
+\usepackage{caption}
+\usepackage{subcaption}
+%\usepackage{subfigure}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{ascmac}
+\usepackage{bm}
+\usepackage{booktabs}
+\usepackage{comment}
+\usepackage{enumitem}
+\usepackage{epsf}
+\usepackage{listings}
+\usepackage{mhchem}
+\usepackage{multirow}
+\usepackage{siunitx}
+\usepackage{url}
+
+\special{pdf: minorversion=7} % for pdf
+\graphicspath{{./fig/}}
+\西暦
+
+\renewcommand{\bf}{\bfseries}
+\renewcommand{\gt}{\gtfamily}
+\renewcommand{\sf}{\sffamily}
+\renewcommand{\figurename}{Fig.}
+\renewcommand{\tablename}{Table}
+
+%useful define
+%\newcommand{\bm}[1]{\mbox{\boldmath $#1$}}
+\newcommand{\eq}[1]{(\ref{eq:#1})}
+\newcommand{\zu}[1]{図\ref{fig:#1}}
+\newcommand{\shiki}[1]{式(\ref{eq:#1})}
+\newcommand{\fig}[1]{Fig.\ \ref{fig:#1}}
+\newcommand{\grp}[1]{Fig.\ \ref{grp:#1}}
+\newcommand{\tab}[1]{Table\ \ref{tab:#1}}
+\newcommand{\defeq}{:=}
+\newcommand{\bvec}[1]{\mbox{\boldmath $#1$}} % bold
+\newcommand{\tvec}[1]{\bvec{#1}^{\mathsf{T}}} % bold transposition
+
+%adjust margin
+\setlength{\textwidth}{180mm}
+\setlength{\columnsep}{10mm}
+\setlength{\textheight}{260mm}
+\setlength{\topmargin}{-45mm}
+\addtolength{\topmargin}{25mm}
+\setlength{\oddsidemargin}{-1in}
+\addtolength{\oddsidemargin}{16mm}
+\setlength{\evensidemargin}{-1in}
+\addtolength{\evensidemargin}{16mm}
+
+\begin{document}
+
+% 目次の表示
+\tableofcontents
+\thispagestyle{empty}
+\clearpage
+
+% 表目次の表示
+\listoffigures
+\listoftables
+\thispagestyle{empty}
+\clearpage
+
+\pagenumbering{arabic}
+
+\section{はじめに}
+\subsection{背景}
+ここに研究背景を書く。
+
+\subsection{本研究の目的}
+ここに研究の目的を書く。
+
+\section{研究内容}
+ここに研究内容について書く。
+
+\section{従来法}
+ここに従来法について書く。
+
+\section{提案法}
+ここに提案法について書く。
+
+\section{シミュレーション}
+\subsection{シミュレーション条件}
+ここにシミュレーション条件について書く。
+
+\subsection{従来法}
+ここに従来法のシミュレーション結果を書く。
+
+\subsection{提案法}
+ここに提案法のシミュレーション結果を書く。
+
+\subsection{シミュレーションのまとめ}
+ここにシミュレーションのまとめを書く。
+
+%\section{実験}
+%ここに実験について書く。
+
+\section{まとめ}
+ここにまとめを書く。
+
+\section{今後の予定}
+ここに今後の予定を書く。
+
+%参考文献
+\small
+%\bibliographystyle{ieeetran}
+%\bibliographystyle{tieice}
+\bibliographystyle{tipsj}
+\bibliography{ref} %use ref.bib
+\normalsize
+
+\end{document}
