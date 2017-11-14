@@ -1,37 +1,57 @@
-\usepackage{times}
+% Using ieej-tec.cls to make document
+% reviced by Yoshi Ri Nov.15.2017
+
+\def\AmSLaTeX{\leavevmode\hbox{$\cal A\kern-.2em\lower.376ex
+		\hbox{$\cal M$}\kern-.2em\cal S$-\LaTeX}}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+		T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+\voffset=-25mm
+\hoffset=-25mm
+
+
 \usepackage{booktabs}
-\usepackage[dvipdfmx]{graphicx}
-\usepackage{listings}
-
-\usepackage[subrefformat=parens]{subcaption}
-\usepackage{url}
-\usepackage{multirow}
-
-\special{pdf: minorversion=7} % pdf画像のため
-
+\usepackage[dvipdfmx]{graphicx,color}
+\usepackage{latexsym}
 \usepackage{amsmath}
 \usepackage{ascmac}
+\usepackage{times}
+
+\usepackage{epsf}
+\usepackage{verbatim}
+\usepackage{subfigure}
+%\usepackage{subcaption}
+%\usepackage{subfig}
+\usepackage[varg]{txfonts}
+
+\usepackage{multicol}
+\usepackage{pifont}
+\usepackage{docmute} %単体でコンパイルできるようにする
+\usepackage{mathtools} % dcases を使う
+
+\usepackage{ascmac}
+\usepackage{amsmath,amssymb}
 \usepackage{epsf}
 
 
+\renewcommand{\bf}{\bfseries}
 \renewcommand{\gt}{\gtfamily}
 \renewcommand{\sf}{\sffamily}
-
-
-
-%%%%%%% 便利define 
 \newcommand{\bm}[1]{\mbox{\boldmath $#1$}}
-\newcommand{\eq}[1]{(\ref{eq:#1})}
-\newcommand{\zu}[1]{図\ref{fig:#1}}
+\newcommand{\eq}[1]{Eq.(\ref{eq:#1})}
+\newcommand{\zu}[1]{\fig{#1}}
 \newcommand{\shiki}[1]{式(\ref{eq:#1})}
 \newcommand{\fig}[1]{Fig.\ \ref{fig:#1}}
 \newcommand{\grp}[1]{Fig.\ \ref{grp:#1}}
-\newcommand{\tab}[1]{Table\ \ref{tab:#1}}
+\newcommand{\tb}[1]{Tab.\ \ref{tb:#1}}
 \newcommand{\defeq}{:=}
 \newcommand{\bvec}[1]{\mbox{\boldmath $#1$}} %太字
 \newcommand{\tvec}[1]{\bvec{#1}^{\mathsf{T}}} %太字転置
 
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
 
-\graphicspath{{./fig/}}
-\和暦
-
+\usepackage{url}
+\usepackage{multicol}
