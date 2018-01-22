@@ -1,0 +1,88 @@
+\documentclass[fleqn]{jreport} % classはjreport固定
+\usepackage{thesis_ja} % 卒業論文用のスタイルファイル 日本語:thesis_ja 英語:thesis_en
+
+\usepackage{chapter/preamble} % 適宜プリアンブルをpreamble.styに追加
+
+\usepackage[dvipdfmx, bookmarkstype=toc, colorlinks=false, pdfborder={0 0 0}, bookmarks=true, bookmarksnumbered=true]{hyperref}
+\usepackage{pxjahyper}
+
+\usepackage{docmute} % セクションごとにコンパイルできるようになる
+
+% 表紙
+\thesis{
+	{\large
+		東京大学 \ 大学院新領域創成科学研究科\\
+		基盤科学研究系\\
+		先端エネルギー工学専攻\\
+	}
+	\vskip 3em
+	平成XX年度\\
+	\vskip 1em
+	修士論文 \\
+}
+\title{\LARGE
+XXXに関する研究
+	\smallskip
+	\large\bf
+}
+\date{\large
+	2017年1月30日提出 \\
+}
+\vskip -3em
+\professor{\large
+	藤本 \ 博志 准教授\\
+}
+
+\author{\Large
+ \ 00-000000
+ \ 名前 name
+}
+
+% YNU report paper size
+\topmargin -15mm
+\oddsidemargin -0.1in \evensidemargin -0.1in
+\baselineskip7.833mm
+\textheight 25.2cm
+\textwidth 17cm
+
+\begin{document}
+\maketitle
+\maegaki
+\include{chapter/abstract}
+
+\maetsuke
+\tableofcontents
+\listoffigures
+\listoftables
+
+% 本文
+\hombun
+\include{chapter/introduction}
+\include{chapter/conventional}
+\include{chapter/proposed}
+\include{chapter/simulation}
+\include{chapter/experiment}
+\include{chapter/conclusion}
+
+\newpage
+\phantomsection
+\addcontentsline{toc}{chapter}{謝辞}
+\include{chapter/thanks}
+\newpage
+\phantomsection
+
+\addcontentsline{toc}{chapter}{参考文献}
+% \bibliographystyle{ieeetran}
+% \bibliography{ref.bib}
+
+\newpage
+\phantomsection
+\addcontentsline{toc}{chapter}{発表文献}
+\include{chapter/present}
+
+\newpage
+\phantomsection
+\addcontentsline{toc}{chapter}{付録}
+\include{chapter/appendix}
+
+\end{document}
