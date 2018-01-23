@@ -1,0 +1,47 @@
+\usepackage[dvipdfmx]{graphicx}
+
+%\usepackage{subcaption}
+\usepackage{subfigure}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{ascmac}
+\usepackage{booktabs}
+\usepackage{comment}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{mhchem}
+\usepackage{multirow}
+\usepackage{siunitx}
+\usepackage{url}
+
+%\usepackage{newtxtext}
+%\usepackage[varg]{newtxmath}
+%\usepackage[varg]{txfonts}
+\usepackage{amssymb}
+
+\usepackage{bm}
+%\newcommand{\bm}[1]{\mbox{\boldmath $#1$}}
+
+\newcommand{\eq}[1]{(\ref{eq:#1})}
+\newcommand{\fig}[1]{Fig.\ \ref{fig:#1}}
+\newcommand{\tab}[1]{Table\ \ref{tab:#1}}
+\newcommand{\defeq}{:=}
+
+\renewcommand{\bf}{\bfseries}
+\renewcommand{\gt}{\gtfamily}
+\renewcommand{\sf}{\sffamily}
+\renewcommand{\figurename}{Fig.}
+\renewcommand{\tablename}{Table}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{definition*}{Definition}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem*{corollary*}{Corollary}
+
+\graphicspath{{./fig/}}
