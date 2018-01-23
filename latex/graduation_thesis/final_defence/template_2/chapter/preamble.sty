@@ -1,0 +1,106 @@
+\usepackage[dvipdfmx]{graphicx}
+
+%\usepackage{subcaption}
+\usepackage{subfigure}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{ascmac}
+\usepackage{booktabs}
+\usepackage{cite}
+\usepackage{comment}
+\usepackage{docmute}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{here}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{makeidx}
+\usepackage{mhchem}
+\usepackage{multirow}
+\usepackage{setspace}
+\usepackage{siunitx}
+\usepackage{url}
+
+%\usepackage{newtxtext}
+%\usepackage[varg]{newtxmath}
+%\usepackage[varg]{txfonts}
+\usepackage{amssymb}
+
+\usepackage{bm}
+%\newcommand{\bm}[1]{\mbox{\boldmath $#1$}}
+
+\newcommand{\eq}[1]{(\ref{eq:#1})}
+\newcommand{\fig}[1]{Fig.\ \ref{fig:#1}}
+\newcommand{\tab}[1]{Table\ \ref{tab:#1}}
+\newcommand{\defeq}{:=}
+
+\newcommand{\diff}{\mathrm{d}}
+\newcommand{\divergence}{\mathrm{div}\,}
+\newcommand{\grad}{\mathrm{grad}\,}
+\newcommand{\rot}{\mathrm{rot}\,}
+
+\renewcommand{\bf}{\bfseries}
+\renewcommand{\gt}{\gtfamily}
+\renewcommand{\sf}{\sffamily}
+\renewcommand{\figurename}{Fig.}
+\renewcommand{\tablename}{Table}
+
+\renewcommand{\prepartname}{Part\ }
+\renewcommand{\postpartname}{}
+
+\renewcommand{\subfigtopskip}{2pt}
+\renewcommand{\subfigcapskip}{-4pt}
+\renewcommand{\subfigbottomskip}{0pt}
+
+\renewcommand{\prechaptername}{Chapter }
+\renewcommand{\postchaptername}{}
+\renewcommand{\contentsname}{Contents}
+\renewcommand{\listfigurename}{List of Figures}
+\renewcommand{\listtablename}{List of Tables}
+\renewcommand{\appendixname}{Appendix~}
+\renewcommand{\figurename}{Figure~}
+\renewcommand{\tablename}{Table~}
+\renewcommand{\bibname}{References}
+
+\renewcommand{\baselinestretch}{1.2}
+
+\renewcommand{\sfdefault}{ptm}
+
+\DeclareMathOperator{\sech}{sech}
+
+\setcounter{tocdepth}{4}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{definition*}{Definition}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem*{corollary*}{Corollary}
+
+\graphicspath{{./fig/}}
+
+\hypersetup{
+	setpagesize=false,
+	bookmarksnumbered=true,%
+	bookmarksopen=true,%
+	colorlinks=true,%
+	linkcolor=black,
+	citecolor=red,
+}
+
+\fancyhead[R]{\sl\nouppercase{\leftmark}}
+\fancyhead[LO]{\sl\nouppercase{\rightmark}}
+\fancyhead[L,RO]{\thepage}
+\cfoot[]{}
+
+\setlength{\fullwidth}{170truemm}
+\setlength{\textwidth}{\fullwidth}
+\setlength{\textheight}{40\baselineskip}
+\addtolength{\textheight}{\topskip}
+\setlength{\voffset}{-0.55in}
+\setlength{\oddsidemargin}{-0.4truemm}
+\setlength{\evensidemargin}{-10.4truemm}

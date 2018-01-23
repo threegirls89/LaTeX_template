@@ -6,7 +6,7 @@
 \usepackage[dvipdfmx, bookmarkstype=toc, colorlinks=false, pdfborder={0 0 0}, bookmarks=true, bookmarksnumbered=true]{hyperref}
 \usepackage{pxjahyper}
 
-\usepackage{docmute} % セクションごとにコンパイルできるようになる
+\usepackage{docmute} % セクションごとにコンパイルできるようにする
 
 % 表紙
 \thesis{
@@ -21,12 +21,12 @@
 	修士論文 \\
 }
 \title{\LARGE
-XXXに関する研究
+XXXXに関する研究
 	\smallskip
 	\large\bf
 }
 \date{\large
-	2017年1月30日提出 \\
+	yyyy年mm月dd日提出 \\
 }
 \vskip -3em
 \professor{\large
@@ -41,7 +41,7 @@ XXXに関する研究
 % YNU report paper size
 \topmargin -15mm
 \oddsidemargin -0.1in \evensidemargin -0.1in
-\baselineskip7.833mm
+\baselineskip 7.833mm
 \textheight 25.2cm
 \textwidth 17cm
 
@@ -58,6 +58,7 @@ XXXに関する研究
 % 本文
 \hombun
 \include{chapter/introduction}
+\include{chapter/setup}
 \include{chapter/conventional}
 \include{chapter/proposed}
 \include{chapter/simulation}
@@ -67,13 +68,13 @@ XXXに関する研究
 \newpage
 \phantomsection
 \addcontentsline{toc}{chapter}{謝辞}
-\include{chapter/thanks}
+\include{chapter/acknowledgements}
 \newpage
 \phantomsection
 
 \addcontentsline{toc}{chapter}{参考文献}
-% \bibliographystyle{ieeetran}
-% \bibliography{ref.bib}
+\bibliographystyle{ieeetran}
+\bibliography{ref}
 
 \newpage
 \phantomsection

@@ -1,0 +1,56 @@
+\documentclass[a4paper,11pt,oneside,openany,fleqn]{jsbook}
+%\documentclass[a4paper,11pt,twoside,openany,fleqn]{jsbook}
+
+\usepackage{chapter/preamble}
+
+\makeindex
+
+\begin{document}
+    \frontmatter
+
+    \pagestyle{fancy}
+
+    \addcontentsline{toc}{chapter}{Abstract}
+    \include{chapter/abstract}
+
+    \addcontentsline{toc}{chapter}{Acknowledgments}
+    \include{chapter/acknowledgment}
+
+    \tableofcontents
+
+    \begin{spacing}{1.0}
+        \listoffigures
+        \listoftables
+    \end{spacing}
+
+    \mainmatter
+
+    \include{chapter/introduction}
+    \include{chapter/setup}
+    \include{chapter/conventional}
+    \include{chapter/proposed}
+    \include{chapter/simulation}
+    \include{chapter/experiment}
+    \include{chapter/conclusion}
+
+    \newpage
+    \phantomsection
+    \addcontentsline{toc}{chapter}{Appendix}
+    \include{chapter/appendix}
+
+    \newpage
+    \phantomsection
+    %\addcontentsline{toc}{chapter}{References}
+    %\bibliographystyle{ieeetran}
+    \bibliographystyle{tipsj}
+    \bibliography{ref}
+
+    \newpage
+    \phantomsection
+    \addcontentsline{toc}{chapter}{List of Publications}
+    \include{chapter/publication}
+
+    \newpage
+    \printindex
+
+\end{document}
