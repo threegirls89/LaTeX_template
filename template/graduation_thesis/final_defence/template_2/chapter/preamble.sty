@@ -1,5 +1,7 @@
 \usepackage[dvipdfmx]{graphicx}
 
+\usepackage{hyperref}
+
 %\usepackage{subcaption}
 \usepackage{subfigure}
 
@@ -12,19 +14,15 @@
 \usepackage{docmute}
 \usepackage{enumitem}
 \usepackage{here}
-\usepackage{hyperref}
 \usepackage{listings}
 \usepackage{makeidx}
+\usepackage{mathtools}
+\usepackage{multicol}
 \usepackage{multirow}
+\usepackage{pifont}
 \usepackage{setspace}
 \usepackage{siunitx}
 \usepackage{url}
-
-\usepackage{fancyhdr}
-\fancyhead[RE]{\sl\nouppercase{\leftmark}}
-\fancyhead[LO]{\sl\nouppercase{\rightmark}}
-\fancyhead[LE,RO]{\thepage}
-\cfoot[]{}
 
 %\usepackage{newtxtext}
 %\usepackage[varg]{newtxmath}
@@ -85,8 +83,6 @@
 \newtheorem*{lemma*}{Lemma}
 \newtheorem*{corollary*}{Corollary}
 
-\graphicspath{{./fig/}}
-
 \hypersetup{
 	setpagesize=false,
 	bookmarksnumbered=true,%
@@ -103,3 +99,5 @@
 \setlength{\voffset}{-0.55in}
 \setlength{\oddsidemargin}{-0.4truemm}
 \setlength{\evensidemargin}{-10.4truemm}
+
+\graphicspath{{./fig/}}

@@ -8,13 +8,8 @@
 \begin{document}
     \frontmatter
 
-    \pagestyle{fancy}
-
     \addcontentsline{toc}{chapter}{Abstract}
     \include{chapter/abstract}
-
-    \addcontentsline{toc}{chapter}{Acknowledgments}
-    \include{chapter/acknowledgment}
 
     \tableofcontents
 
@@ -27,10 +22,15 @@
 
     \include{chapter/introduction}
     \include{chapter/setup}
+
+    \part{Theory}
     \include{chapter/conventional}
     \include{chapter/proposed}
+
+    \part{Applications}
     \include{chapter/simulation}
     \include{chapter/experiment}
+
     \include{chapter/conclusion}
 
     \newpage
@@ -40,8 +40,6 @@
 
     \newpage
     \phantomsection
-    %\addcontentsline{toc}{chapter}{References}
-    %\bibliographystyle{ieeetran}
     \bibliographystyle{tipsj}
     \bibliography{ref}
 
@@ -49,6 +47,10 @@
     \phantomsection
     \addcontentsline{toc}{chapter}{List of Publications}
     \include{chapter/publication}
+
+
+    \addcontentsline{toc}{chapter}{Acknowledgments}
+    \include{chapter/acknowledgment}
 
     \newpage
     \printindex

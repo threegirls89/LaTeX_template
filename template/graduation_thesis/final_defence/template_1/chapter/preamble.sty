@@ -1,23 +1,35 @@
-\usepackage[dvipdfmx, bookmarkstype=toc, colorlinks=false, pdfborder={0 0 0}, bookmarks=true, bookmarksnumbered=true]{hyperref}
+\usepackage{graphicx}
+\usepackage{color}
+
+\usepackage[bookmarkstype=toc, colorlinks=false, pdfborder={0 0 0}, bookmarks=true, bookmarksnumbered=true]{hyperref}
 \usepackage{pxjahyper}
-\usepackage{docmute}
 
-\usepackage{booktabs}
-\usepackage[dvipdfmx]{graphicx,color}
-%\usepackage[dvipdfmx]{color}
-\usepackage{amsmath}
-\usepackage{ascmac}
-\usepackage{times}
-
-\usepackage{epsf}
-\usepackage{verbatim}
+%\usepackage{subcaption}
 \usepackage{subfigure}
-\usepackage[varg]{txfonts}
 
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{ascmac}
+\usepackage{booktabs}
+\usepackage{cite}
+\usepackage{comment}
+\usepackage{docmute}
+\usepackage{enumitem}
+\usepackage{here}
+\usepackage{listings}
+\usepackage{makeidx}
+\usepackage{mathtools}
 \usepackage{multicol}
+\usepackage{multirow}
 \usepackage{pifont}
-%\usepackage{docmute} %単体でコンパイルできるようにする
-\usepackage{mathtools} % dcases を使う
+\usepackage{setspace}
+\usepackage{siunitx}
+\usepackage{url}
+
+%\usepackage{newtxtext}
+%\usepackage[varg]{newtxmath}
+%\usepackage[varg]{txfonts}
+\usepackage{amssymb}
 
 \renewcommand{\bf}{\bfseries}
 \renewcommand{\gt}{\gtfamily}
@@ -30,16 +42,21 @@
 %\renewcommand{\algorithmicrequire}{\textbf{Input:}}
 %\renewcommand{\algorithmicensure}{\textbf{Output:}}
 
+%\usepackage{bm}
 \newcommand{\bm}[1]{\mbox{\boldmath $#1$}}
+
 \newcommand{\eq}[1]{(\ref{eq:#1})}
-\newcommand{\zu}[1]{\fig{#1}}
-\newcommand{\shiki}[1]{式(\ref{eq:#1})}
 \newcommand{\fig}[1]{Fig.\ \ref{fig:#1}}
-\newcommand{\grp}[1]{Fig.\ \ref{grp:#1}}
-\newcommand{\tb}[1]{Tab.\ \ref{tb:#1}}
+\newcommand{\tab}[1]{Table\ \ref{tab:#1}}
 \newcommand{\defeq}{:=}
-\newcommand{\bvec}[1]{\mbox{\boldmath $#1$}} %太字
-\newcommand{\tvec}[1]{\bvec{#1}^{\mathsf{T}}} %太字転置
+
+\newcommand{\bvec}[1]{\mbox{\boldmath $#1$}}
+\newcommand{\tvec}[1]{\bvec{#1}^{\mathsf{T}}}
+
+\newcommand{\diff}{\mathrm{d}}
+\newcommand{\divergence}{\mathrm{div}\,}
+\newcommand{\grad}{\mathrm{grad}\,}
+\newcommand{\rot}{\mathrm{rot}\,}
 
 \newtheorem{theorem}{Theorem}
 \newtheorem{definition}[theorem]{Definition}
@@ -47,4 +64,3 @@
 \newtheorem{corollary}[theorem]{Corollary}
 
 \graphicspath{{../fig/}}
-
