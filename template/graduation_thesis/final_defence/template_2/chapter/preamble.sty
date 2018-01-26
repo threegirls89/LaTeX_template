@@ -2,8 +2,12 @@
 
 \usepackage{hyperref}
 
+\usepackage{docmute}
+
 %\usepackage{subcaption}
 \usepackage{subfigure}
+
+\graphicspath{{./fig/}}
 
 \usepackage{amsmath}
 \usepackage{amsthm}
@@ -11,7 +15,6 @@
 \usepackage{booktabs}
 \usepackage{cite}
 \usepackage{comment}
-\usepackage{docmute}
 \usepackage{enumitem}
 \usepackage{here}
 \usepackage{listings}
@@ -36,6 +39,8 @@
 \newcommand{\fig}[1]{Fig.\ \ref{fig:#1}}
 \newcommand{\tab}[1]{Table\ \ref{tab:#1}}
 \newcommand{\defeq}{:=}
+\newcommand{\bvec}[1]{\mbox{\boldmath $#1$}}
+\newcommand{\tvec}[1]{\bvec{#1}^{\mathsf{T}}}
 
 \newcommand{\diff}{\mathrm{d}}
 \newcommand{\divergence}{\mathrm{div}\,}
@@ -47,6 +52,16 @@
 \renewcommand{\sf}{\sffamily}
 \renewcommand{\figurename}{Fig.}
 \renewcommand{\tablename}{Table}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{definition*}{Definition}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem*{corollary*}{Corollary}
 
 \renewcommand{\prepartname}{Part\ }
 \renewcommand{\postpartname}{}
@@ -73,16 +88,6 @@
 
 \setcounter{tocdepth}{4}
 
-\newtheorem{theorem}{Theorem}
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{corollary}[theorem]{Corollary}
-
-\newtheorem*{theorem*}{Theorem}
-\newtheorem*{definition*}{Definition}
-\newtheorem*{lemma*}{Lemma}
-\newtheorem*{corollary*}{Corollary}
-
 \hypersetup{
 	setpagesize=false,
 	bookmarksnumbered=true,%
@@ -99,5 +104,3 @@
 \setlength{\voffset}{-0.55in}
 \setlength{\oddsidemargin}{-0.4truemm}
 \setlength{\evensidemargin}{-10.4truemm}
-
-\graphicspath{{./fig/}}

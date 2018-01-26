@@ -1,11 +1,14 @@
-\usepackage{graphicx}
-\usepackage{color}
+\usepackage[dvipdfmx]{graphicx}
 
 \usepackage[bookmarkstype=toc, colorlinks=false, pdfborder={0 0 0}, bookmarks=true, bookmarksnumbered=true]{hyperref}
 \usepackage{pxjahyper}
 
+\usepackage{docmute}
+
 %\usepackage{subcaption}
 \usepackage{subfigure}
+
+\graphicspath{{../fig/}}
 
 \usepackage{amsmath}
 \usepackage{amsthm}
@@ -13,7 +16,6 @@
 \usepackage{booktabs}
 \usepackage{cite}
 \usepackage{comment}
-\usepackage{docmute}
 \usepackage{enumitem}
 \usepackage{here}
 \usepackage{listings}
@@ -31,25 +33,13 @@
 %\usepackage[varg]{txfonts}
 \usepackage{amssymb}
 
-\renewcommand{\bf}{\bfseries}
-\renewcommand{\gt}{\gtfamily}
-\renewcommand{\sf}{\sffamily}
-\label{alg1}
-
-%\usepackage{algorithm}
-%\usepackage{algorithmic}
-%\newcommand{\AND}{\algorithmicand{} }
-%\renewcommand{\algorithmicrequire}{\textbf{Input:}}
-%\renewcommand{\algorithmicensure}{\textbf{Output:}}
-
-%\usepackage{bm}
-\newcommand{\bm}[1]{\mbox{\boldmath $#1$}}
+\usepackage{bm}
+%\newcommand{\bm}[1]{\mbox{\boldmath $#1$}}
 
 \newcommand{\eq}[1]{(\ref{eq:#1})}
 \newcommand{\fig}[1]{Fig.\ \ref{fig:#1}}
 \newcommand{\tab}[1]{Table\ \ref{tab:#1}}
 \newcommand{\defeq}{:=}
-
 \newcommand{\bvec}[1]{\mbox{\boldmath $#1$}}
 \newcommand{\tvec}[1]{\bvec{#1}^{\mathsf{T}}}
 
@@ -58,9 +48,18 @@
 \newcommand{\grad}{\mathrm{grad}\,}
 \newcommand{\rot}{\mathrm{rot}\,}
 
+\renewcommand{\bf}{\bfseries}
+\renewcommand{\gt}{\gtfamily}
+\renewcommand{\sf}{\sffamily}
+\renewcommand{\figurename}{Fig.}
+\renewcommand{\tablename}{Table}
+
 \newtheorem{theorem}{Theorem}
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{corollary}[theorem]{Corollary}
 
-\graphicspath{{../fig/}}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{definition*}{Definition}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem*{corollary*}{Corollary}

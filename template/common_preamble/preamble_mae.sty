@@ -1,19 +1,31 @@
 \usepackage[dvipdfmx]{graphicx}
 
+\usepackage{hyperref}
+
 %\usepackage{subcaption}
 \usepackage{subfigure}
+
+\graphicspath{{./fig/}}
 
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{ascmac}
 \usepackage{booktabs}
+\usepackage{cite}
 \usepackage{comment}
 \usepackage{enumitem}
+\usepackage{here}
 \usepackage{listings}
-\usepackage{mhchem}
+\usepackage{makeidx}
+\usepackage{mathtools}
+\usepackage{multicol}
 \usepackage{multirow}
+\usepackage{pifont}
+\usepackage{setspace}
 \usepackage{siunitx}
 \usepackage{url}
+
+\usepackage{mhchem}
 
 %\usepackage{newtxtext}
 %\usepackage[varg]{newtxmath}
@@ -27,6 +39,13 @@
 \newcommand{\fig}[1]{Fig.\ \ref{fig:#1}}
 \newcommand{\tab}[1]{Table\ \ref{tab:#1}}
 \newcommand{\defeq}{:=}
+\newcommand{\bvec}[1]{\mbox{\boldmath $#1$}}
+\newcommand{\tvec}[1]{\bvec{#1}^{\mathsf{T}}}
+
+\newcommand{\diff}{\mathrm{d}}
+\newcommand{\divergence}{\mathrm{div}\,}
+\newcommand{\grad}{\mathrm{grad}\,}
+\newcommand{\rot}{\mathrm{rot}\,}
 
 \renewcommand{\bf}{\bfseries}
 \renewcommand{\gt}{\gtfamily}
@@ -43,5 +62,3 @@
 \newtheorem*{definition*}{Definition}
 \newtheorem*{lemma*}{Lemma}
 \newtheorem*{corollary*}{Corollary}
-
-\graphicspath{{./fig/}}
