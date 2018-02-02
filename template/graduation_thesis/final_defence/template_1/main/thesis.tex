@@ -2,7 +2,7 @@
 
 \usepackage{thesis_ja} % 卒業論文用のスタイルファイル 日本語:thesis_ja 英語:thesis_en
 
-\usepackage{chapter/preamble} % 適宜プリアンブルをpreamble.styに追加
+\usepackage{preamble} % 適宜プリアンブルをpreamble.styに追加
 
 % 表紙
 \thesis{
@@ -44,7 +44,7 @@
 \begin{document}
 \maketitle
 \maegaki
-\include{chapter/abstract}
+\input{../chapter/abstract}
 
 \maetsuke
 \tableofcontents
@@ -54,39 +54,39 @@
 % 本文
 \hombun
 
-\include{chapter/introduction}
-\include{chapter/setup}
+\input{../chapter/introduction}
+\input{../chapter/setup}
 
 \part{理論}
 
-\include{chapter/conventional}
-\include{chapter/proposed}
+\input{../chapter/conventional}
+\input{../chapter/proposed}
 
 \part{応用}
 
-\include{chapter/simulation}
-\include{chapter/experiment}
-\include{chapter/conclusion}
+\input{../chapter/simulation}
+\input{../chapter/experiment}
+\input{../chapter/conclusion}
 
 \newpage
 \phantomsection
 \addcontentsline{toc}{chapter}{付録}
-\include{chapter/appendix}
+\input{../chapter/appendix}
 
 \newpage
 \phantomsection
 \bibliographystyle{ieeetran}
-\bibliography{ref}
+% \bibliography{ref}
 
 \newpage
 \phantomsection
 \addcontentsline{toc}{chapter}{発表文献}
-\include{chapter/publication}
+\input{../chapter/publication}
 
 \newpage
 \phantomsection
 \addcontentsline{toc}{chapter}{謝辞}
-\include{chapter/acknowledgments}
+\input{../chapter/acknowledgments}
 
 \newpage
 \printindex

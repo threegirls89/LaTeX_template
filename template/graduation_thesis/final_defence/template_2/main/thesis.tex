@@ -1,7 +1,7 @@
 \documentclass[a4paper,11pt,oneside,openany,fleqn]{jsbook}
 %\documentclass[a4paper,11pt,twoside,openany,fleqn]{jsbook}
 
-\usepackage{chapter/preamble}
+\usepackage{preamble}
 
 \begin{document}
 
@@ -43,7 +43,7 @@
     \frontmatter
 
     \addcontentsline{toc}{chapter}{Abstract}
-    \include{chapter/abstract}
+    \input{../chapter/abstract}
 
     \tableofcontents
 
@@ -54,25 +54,25 @@
 
     \mainmatter
 
-    \include{chapter/introduction}
-    \include{chapter/setup}
+    \input{../chapter/introduction}
+    \input{../chapter/setup}
 
     \part{Theory}
 
-    \include{chapter/conventional}
-    \include{chapter/proposed}
+    \input{../chapter/conventional}
+    \input{../chapter/proposed}
 
     \part{Applications}
 
-    \include{chapter/simulation}
-    \include{chapter/experiment}
+    \input{../chapter/simulation}
+    \input{../chapter/experiment}
 
-    \include{chapter/conclusion}
+    \input{../chapter/conclusion}
 
     \newpage
     \phantomsection
     \addcontentsline{toc}{chapter}{Appendix}
-    \include{chapter/appendix}
+    \input{../chapter/appendix}
 
     \newpage
     \phantomsection
@@ -82,12 +82,12 @@
     \newpage
     \phantomsection
     \addcontentsline{toc}{chapter}{List of Publications}
-    \include{chapter/publication}
+    \input{../chapter/publication}
 
     \newpage
     \phantomsection
     \addcontentsline{toc}{chapter}{Acknowledgments}
-    \include{chapter/acknowledgment}
+    \input{../chapter/acknowledgment}
 
     \newpage
     \printindex
