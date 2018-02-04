@@ -3,18 +3,10 @@
 \usepackage{times}
 \usepackage{booktabs}
 \usepackage[dvipdfmx]{graphicx}
-%\usepackage{mediabb} % pdfのbbのため
 \usepackage{listings}
-
 \usepackage{subfigure}
 \usepackage{url}
 \usepackage{multirow}
-%\usepackage{ulem} % 取り消し線
-
-
-
-\special{pdf: minorversion=7} % pdf画像のため
-
 \usepackage{amsmath}
 \usepackage{ascmac}
 \usepackage{epsf}
@@ -36,7 +28,6 @@
 
 \setlength{\evensidemargin}{-1in}
 \addtolength{\evensidemargin}{9mm}
-
 
 %\renewcommand{\bf}{\bfseries}
 %\renewcommand{\gt}{\gtfamily}
@@ -60,38 +51,39 @@
 \newcommand{\bl}[1]{\mbox{{\bf #1}}}
 
 \graphicspath{{../fig/}}
-\和暦
 \renewcommand{\figurename}{Fig.}
 
 \makeatletter
 \def\ps@myplain{%
- \let\@mkboth\@gobbletwo
- \def\@oddhead{ \today \ - \thepage} %奇数ページヘッダ，名前の前のスペースは消さないように
- \def\@oddfoot{ \thepage \ }%奇数ページフッタ
- \let\@evenhead\@oddhead %偶数ページヘッダ
- \let\@evenfoot\@oddfoot %偶数ページフッタ\@topnewpage
+    \let\@mkboth\@gobbletwo
+    \def\@oddhead{ \today \ - \thepage} %奇数ページヘッダ，名前の前のスペースは消さないように
+    \def\@oddfoot{ \thepage \ }%奇数ページフッタ
+    \let\@evenhead\@oddhead %偶数ページヘッダ
+    \let\@evenfoot\@oddfoot %偶数ページフッタ\@topnewpage
 }
 \makeatother
 \pagestyle{myplain} %ページスタイル
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 %\onecolumn
 \twocolumn[
 \begin{flushright}
-東京大学　新領域創成科学研究科 \today 中間報告配布資料 \\
+東京大学 新領域創成科学研究科 yyyy年mm月dd日(曜) 中間報告配布資料\\
 \end{flushright}
 \begin{center}
-{\LARGE ～～に関する研究 }\\
-堀藤本研究室 学籍番号00 - 000000 ホリフジタロウ    \hspace{10mm}    指導教官：藤本 博志    准教授
+{\LARGE ～～に関する研究}\\
+堀藤本研究室 \hspace{10mm} 学籍番号 00 - 000000 ホリフジ タロウ \hspace{10mm} 指導教官：藤本 博志 准教授
 \end{center}
 \vspace{2zw}
 ]
 
 
-\footnotesize
-\begin{thebibliography}{9}
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\end{thebibliography}
+
+\small
+%\bibliographystyle{ieeetran}
+%\bibliographystyle{tieice}
+\bibliographystyle{tipsj}
+\bibliography{ref} %use ref.bib
+\normalsize
+
 \end{document}
