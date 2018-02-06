@@ -5,8 +5,7 @@
 
 \begin{document}
 
-    \pagestyle{empty}
-
+    \thispagestyle{empty}
     \begin{center}
         \vspace*{6pt}
         {\LARGE {\bf Doctoral Dissertation}}
@@ -33,29 +32,24 @@
         \vskip 1em
         {\large {\bf The University of Tokyo}}
         \vskip 4em
-        {\large \bf{Month yyyy}}
+        {\large {\bf Month yyyy}}
         \vskip 4em
-        {\large Supervisor:\\
-            \bf{Professor \ Hiroshi Fujimoto}
-        }
+        {\large Supervisor:\\ {\bf Professor \ Hiroshi Fujimoto}}
     \end{center}
 
     \frontmatter
 
-    \addcontentsline{toc}{chapter}{Abstract}
     \input{../chapter/abstract}
 
     \tableofcontents
-
-    \begin{spacing}{1.0}
-        \listoffigures
-        \listoftables
-    \end{spacing}
+    \listoffigures
+    \listoftables
 
     \mainmatter
 
     \input{../chapter/introduction}
     \input{../chapter/setup}
+    \input{../chapter/modeling}
 
     \part{Theory}
 
