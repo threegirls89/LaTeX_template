@@ -1,4 +1,5 @@
-\usepackage[dvipdfmx]{hyperref}
+\usepackage{hyperref}
+\usepackage{pxjahyper}
 \hypersetup{
     setpagesize=false,
     bookmarksnumbered=true,
@@ -8,11 +9,10 @@
     citecolor=black,
 }
 \setcounter{tocdepth}{4}
-\usepackage{pxjahyper}
 
-\usepackage[dvipdfmx]{color}
+\usepackage{color}
 
-\usepackage[dvipdfmx]{graphicx}
+\usepackage{graphicx}
 
 \usepackage{docmute}
 
@@ -59,6 +59,8 @@
 \newcommand{\grad}{\mathrm{grad}\,}
 \newcommand{\rot}{\mathrm{rot}\,}
 
+\DeclareMathOperator{\sech}{sech}
+
 \renewcommand{\bf}{\bfseries}
 \renewcommand{\gt}{\gtfamily}
 \renewcommand{\sf}{\sffamily}
@@ -74,30 +76,3 @@
 \newtheorem*{definition*}{Definition}
 \newtheorem*{lemma*}{Lemma}
 \newtheorem*{corollary*}{Corollary}
-
-\renewcommand{\prepartname}{Part }
-\renewcommand{\postpartname}{}
-\renewcommand{\prechaptername}{Chapter }
-\renewcommand{\postchaptername}{}
-\renewcommand{\contentsname}{Contents}
-\renewcommand{\listfigurename}{List of Figures}
-\renewcommand{\listtablename}{List of Tables}
-\renewcommand{\appendixname}{Appendix~}
-\renewcommand{\figurename}{Figure~}
-\renewcommand{\tablename}{Table~}
-\renewcommand{\bibname}{References}
-
-\renewcommand{\subfigtopskip}{2pt}
-\renewcommand{\subfigcapskip}{-4pt}
-\renewcommand{\subfigbottomskip}{0pt}
-\renewcommand{\baselinestretch}{1.2}
-\renewcommand{\sfdefault}{ptm}
-
-\DeclareMathOperator{\sech}{sech}
-\addtolength{\textheight}{\topskip}
-\setlength{\fullwidth}{170truemm}
-\setlength{\textwidth}{\fullwidth}
-\setlength{\textheight}{40\baselineskip}
-\setlength{\voffset}{-0.55in}
-\setlength{\oddsidemargin}{-0.4truemm}
-\setlength{\evensidemargin}{-10.4truemm}

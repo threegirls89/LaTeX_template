@@ -1,7 +1,29 @@
-\documentclass[a4paper,11pt,oneside,openany,fleqn]{jsbook}
-%\documentclass[a4paper,11pt,twoside,openany,fleqn]{jsbook}
+\documentclass[11pt,a4paper,oneside,onecolumn,fleqn,dvipdfmx]{jsbook}
+%\documentclass[11pt,a4paper,oneside,onecolumn,fleqn,dvipdfmx]{jsbook}
 
 \usepackage{preamble}
+
+\renewcommand{\sfdefault}{ptm}
+
+\renewcommand{\prepartname}{Part }
+\renewcommand{\postpartname}{}
+\renewcommand{\prechaptername}{Chapter }
+\renewcommand{\postchaptername}{}
+\renewcommand{\contentsname}{Contents}
+\renewcommand{\listfigurename}{List of Figures}
+\renewcommand{\listtablename}{List of Tables}
+\renewcommand{\appendixname}{Appendix~}
+\renewcommand{\figurename}{Figure~}
+\renewcommand{\tablename}{Table~}
+\renewcommand{\bibname}{References}
+
+\addtolength{\textheight}{\topskip}
+\setlength{\fullwidth}{170truemm}
+\setlength{\textwidth}{\fullwidth}
+\setlength{\textheight}{40\baselineskip}
+\setlength{\voffset}{-0.55in}
+\setlength{\oddsidemargin}{-0.4truemm}
+\setlength{\evensidemargin}{-10.4truemm}
 
 \begin{document}
 
@@ -40,6 +62,7 @@
     \frontmatter
 
     \input{../chapter/abstract}
+    \input{../chapter/acknowledgment}
 
     \tableofcontents
     \listoffigures
@@ -78,11 +101,6 @@
     \phantomsection
     \addcontentsline{toc}{chapter}{List of Publications}
     \input{../chapter/publication}
-
-    \newpage
-    \phantomsection
-    \addcontentsline{toc}{chapter}{Acknowledgments}
-    \input{../chapter/acknowledgment}
 
     \newpage
     \printindex
