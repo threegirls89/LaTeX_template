@@ -1,62 +1,18 @@
-\documentclass[10pt,twocolumn,fleqn]{jsarticle}
+\documentclass[10pt,a4paper,oneside,twocolumn,fleqn,dvipdfmx]{jsarticle}
+
+\usepackage{preamble}
 
 \usepackage{geometry}
-\geometry{left=5truemm,right=5truemm,top=15truemm,bottom=5truemm}
-
-\usepackage{newtxtext}
-\usepackage[varg]{newtxmath}
-
-\usepackage[dvipdfmx]{graphicx}
-
-\usepackage{caption}
-\usepackage{subcaption}
-%\usepackage{subfigure}
-
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{ascmac}
-\usepackage{bm}
-\usepackage{booktabs}
-\usepackage{comment}
-\usepackage{enumitem}
-\usepackage{epsf}
-\usepackage{listings}
-\usepackage{mhchem}
-\usepackage{multirow}
-\usepackage{siunitx}
-\usepackage{url}
-
-\special{pdf: minorversion=7} % for pdf
-\graphicspath{{./fig/}}
-\西暦
-
-\renewcommand{\bf}{\bfseries}
-\renewcommand{\gt}{\gtfamily}
-\renewcommand{\sf}{\sffamily}
-\renewcommand{\figurename}{Fig.}
-\renewcommand{\tablename}{Table}
-
-%useful define
-%\newcommand{\bm}[1]{\mbox{\boldmath $#1$}}
-\newcommand{\eq}[1]{(\ref{eq:#1})}
-\newcommand{\zu}[1]{図\ref{fig:#1}}
-\newcommand{\shiki}[1]{式(\ref{eq:#1})}
-\newcommand{\fig}[1]{Fig.\ \ref{fig:#1}}
-\newcommand{\grp}[1]{Fig.\ \ref{grp:#1}}
-\newcommand{\tab}[1]{Table\ \ref{tab:#1}}
-\newcommand{\defeq}{:=}
-\newcommand{\bvec}[1]{\mbox{\boldmath $#1$}} % bold
-\newcommand{\tvec}[1]{\bvec{#1}^{\mathsf{T}}} % bold transposition
+\geometry{left=5truemm,right=5truemm,top=5truemm,bottom=5truemm}
 
 \begin{document}
 \twocolumn[
-\vspace{-15mm}
 \begin{itembox}{卒業論文中間報告会資料 yyyy年mm月dd日}
-\centering
-\large ここに論文題目を書く
-\begin{flushright}
-堀・藤本研究室 00-000000 氏名
-\end{flushright}
+    \centering
+    \large ここに論文題目を書く
+    \begin{flushright}
+        堀・藤本研究室 00-000000 氏名
+    \end{flushright}
 \end{itembox}
 ]
 
@@ -73,17 +29,14 @@
 ここに提案法を書く。
 
 \section{シミュレーション}
-ここにシミュレーションについて書く。
+ここにシミュレーションを書く。
 
 \section{まとめと今後の課題}
-ここにまとめと今後の課題について書く。
+ここにまとめと今後の課題を書く。
 
-%参考文献
 \small
-%\bibliographystyle{ieeetran}
-%\bibliographystyle{tieice}
 \bibliographystyle{tipsj}
-\bibliography{ref} %use ref.bib
+\bibliography{ref}
 \normalsize
 
 \end{document}

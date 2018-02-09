@@ -1,89 +1,42 @@
-﻿\documentclass[a4paper,10pt,twocolumn,fleqn]{jarticle}
+\documentclass[10pt,a4paper,oneside,twocolumn,fleqn,dvipdfmx]{jsarticle}
 
-\usepackage{times}
-\usepackage{booktabs}
-\usepackage[dvipdfmx]{graphicx}
-\usepackage{listings}
-\usepackage{subfigure}
-\usepackage{url}
-\usepackage{multirow}
-\usepackage{amsmath}
-\usepackage{ascmac}
-\usepackage{epsf}
+\usepackage{preamble}
 
-%\setlength{\textwidth}{180mm}
-%\setlength{\columnsep}{10mm}
-%\setlength{\textheight}{260mm}
-%\setlength{\topmargin}{-45mm}
-%\addtolength{\topmargin}{25mm}
-%\setlength{\oddsidemargin}{-1in}
-\setlength{\textwidth}{190mm}
-\setlength{\columnsep}{10mm}
-\setlength{\textheight}{275mm}
-\setlength{\topmargin}{-45mm}
-\addtolength{\topmargin}{10mm}
-\setlength{\oddsidemargin}{-1in}
-
-\addtolength{\oddsidemargin}{9mm}
-
-\setlength{\evensidemargin}{-1in}
-\addtolength{\evensidemargin}{9mm}
-
-%\renewcommand{\bf}{\bfseries}
-%\renewcommand{\gt}{\gtfamily}
-%\renewcommand{\sf}{\sffamily}
-
-%\renewcommand{\subfigtopskip}{0pt}
-%\renewcommand{\subfigcapskip}{-4pt} %キャプションと図の間の間隔調整
-%\renewcommand{\subfigbottomskip}{0pt}
-
-\newcommand{\bm}[1]{\mbox{\boldmath $#1$}}
-\newcommand{\bt}[1]{\mbox{ \textbf{ $#1$}}}%後から加えたオリジナル
-\newcommand{\eq}[1]{(\ref{eq:#1})}
-\newcommand{\zu}[1]{図\ref{fig:#1}}
-\newcommand{\shiki}[1]{式(\ref{eq:#1})}
-\newcommand{\fig}[1]{Fig.\ \ref{fig:#1}}
-\newcommand{\grp}[1]{Fig.\ \ref{grp:#1}}
-\newcommand{\tab}[1]{Table\ \ref{tab:#1}}
-\newcommand{\defeq}{:=}
-\newcommand{\bvec}[1]{\mbox{\boldmath $#1$}} %太字
-\newcommand{\tvec}[1]{\bvec{#1}^{\mathsf{T}}} %太字転置
-\newcommand{\bl}[1]{\mbox{{\bf #1}}}
-
-\graphicspath{{../fig/}}
-\renewcommand{\figurename}{Fig.}
-
-\makeatletter
-\def\ps@myplain{%
-    \let\@mkboth\@gobbletwo
-    \def\@oddhead{ \today \ - \thepage} %奇数ページヘッダ，名前の前のスペースは消さないように
-    \def\@oddfoot{ \thepage \ }%奇数ページフッタ
-    \let\@evenhead\@oddhead %偶数ページヘッダ
-    \let\@evenfoot\@oddfoot %偶数ページフッタ\@topnewpage
-}
-\makeatother
-\pagestyle{myplain} %ページスタイル
+\usepackage{geometry}
+\geometry{left=5truemm,right=5truemm,top=5truemm,bottom=5truemm}
 
 \begin{document}
-%\onecolumn
 \twocolumn[
-\begin{flushright}
 東京大学 新領域創成科学研究科 yyyy年mm月dd日(曜) 中間報告配布資料\\
-\end{flushright}
 \begin{center}
-{\LARGE ～～に関する研究}\\
-堀藤本研究室 \hspace{10mm} 学籍番号 00 - 000000 ホリフジ タロウ \hspace{10mm} 指導教官：藤本 博志 准教授
+    {\LARGE XXに関する研究}\\
+    \begin{flushright}
+        指導教員 \ \ 藤本 博志 准教授 \ \ \ \ 00-000000 \ \ 氏名
+    \end{flushright}
 \end{center}
-\vspace{2zw}
 ]
 
+\section{はじめに}
+ここにはじめにを書く。
 
+\section{提案法に用いる理論}
+ここに提案法に用いる理論を書く。
+
+\section{従来法}
+ここに従来法を書く。
+
+\section{提案法}
+ここに提案法を書く。
+
+\section{シミュレーション}
+ここにシミュレーションを書く。
+
+\section{まとめと今後の課題}
+ここにまとめと今後の課題を書く。
 
 \small
-%\bibliographystyle{ieeetran}
-%\bibliographystyle{tieice}
 \bibliographystyle{tipsj}
-\bibliography{ref} %use ref.bib
+\bibliography{ref}
 \normalsize
 
 \end{document}
