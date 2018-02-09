@@ -1,8 +1,14 @@
 ### LaTeX
 *.aux
-*.blg 						
-*.dvi
-*.log
-*.gz
 *.bbl
+*.blg
+*.dvi
+*.fdb_latexmk
+*.fls
+*.gz
+*.lof
+*.log
+*.lot
+*.out
 *.synctex
+*.toc
