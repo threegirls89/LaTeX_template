@@ -1,50 +1,39 @@
-% $BEE5$EE;R3F<o;qNA$N$?$a$N%?%$%H%k%^%/%m(J
-%	ver1.0: 26 Apr 1991 by shisei
-%  usage: \makedendentitle{$B:8>eJ8;zNs(J}{$B:82<J8;zNs(J}
-%	\maketitle $B$HBgK^%3%s%Q%A%V%k$G$9!#(J
-% $B$3$s$J$b$N$N$?$a$K(J5$BF|0LHq$d$7$F$7$^$C$?!#(J
+% use jarticle.sty
 
-% jarticle.sty $BMQ(J
-
-%\topmargin -0.5in
 \textheight=25cm
 \def\makedendentitle#1#2{\par
- \begingroup
- \if@twocolumn			%@twocolumn$B$H$$$&JQ?t(J?$B$,@_Dj$5$l$F$$$k$J$i!"(J
- \twocolumn[\@dendentitle{#1}{#2}]	%$B$=$&$9$k!#(J
- \else \newpage			%$B$=$&$8$c$J$$$H!"2~JG$7$F!"(J
- \global\@topnum\z@ \@dendentitle{#1}{#2} \fi\@thanks
- \endgroup
- \let\makedendentitle\relax
- \let\@dendentitle\relax
- \gdef\@thanks{}\gdef\@author{}\gdef\@title{}\let\thanks\relax}
+\begingroup
+\if@twocolumn
+\twocolumn[\@dendentitle{#1}{#2}]
+\else \newpage
+\global\@topnum\z@ \@dendentitle{#1}{#2} \fi\@thanks
+\endgroup
+\let\makedendentitle\relax
+\let\@dendentitle\relax
+\gdef\@thanks{}\gdef\@author{}\gdef\@title{}\let\thanks\relax}
 
-% $B%?%$%H%k$NCf?H$r$$$l$?$b$N!#(J
 \vskip -4cm
 \def\@dendentitle#1#2{\newpage
- \null
-%\vskip 2em 
- \newlength \dendenwidth
- \dendenwidth = -2ex
- \advance \dendenwidth by \textwidth
- \begin{center}
- \framebox[\textwidth]{
-   \parbox{\dendenwidth}
-     {
-       \vskip .5ex
-       #1 \hfill {$BJ?@.(J29$BG/(J7$B7n(J21$BF|(J} \\ 
-         \parbox{\dendenwidth}{
-           \vskip 1em
-           \centering {\Large \bf \@title \par}
-           \vskip 1em
-         }
-       \vskip 0ex 
-% $B$J$<$+$3$&$9$k$H$&$^$/$$$/!#(J
-       #2 \hfill \@author 
-       \vskip .5ex
-     }
- }
- \end{center}
-% \vskip 3em
- \vskip 1em
+\null
+\newlength \dendenwidth
+\dendenwidth = -2ex
+\advance \dendenwidth by \textwidth
+\begin{center}
+    \framebox[\textwidth]{
+    \parbox{\dendenwidth}
+    {
+    \vskip .5ex
+    #1 \hfill {yyyy年mm月dd日}\\
+    \parbox{\dendenwidth}{
+    \vskip 1em
+    \centering {\Large \bf \@title \par}
+    \vskip 1em
+    }
+    \vskip 0ex 
+    #2 \hfill \@author 
+    \vskip .5ex
+    }
+}
+\end{center}
+\vskip 1em
 }
