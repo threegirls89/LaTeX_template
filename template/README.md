@@ -4,7 +4,7 @@
 
 ## フォルダの説明
 
-## FAQ
+## faq
 LaTeXに関する説明およびFAQ
 
 ### common_preamble
@@ -25,7 +25,7 @@ preamble_name.sty
 ## houkoku
 研究室報告会用のテンプレート
 
-## IEEEtran
+## ieeetran
 IEEE Transaction 用のテンプレート
 
 ## ieej
@@ -34,8 +34,5 @@ IEEE Transaction 用のテンプレート
 ## rinko
 輪講用のテンプレート
 
-## SAMCON
+## samcon
 SAMCON 用のテンプレート
-
-## TeXstudio
-LaTeX の統合開発環境である [TeXstudio](http://texstudio.sourceforge.net/) の設定ファイル
