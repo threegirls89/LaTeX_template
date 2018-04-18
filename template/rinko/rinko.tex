@@ -1,41 +1,50 @@
-\documentclass[a4paper,fleqn,twocolumn,9pt]{jsarticle}
-\title{XXXXXXXXXに関する調査\\
-Survey on HFlab}
-\author{D1 37-XXXXXX Horifuji Taro}
+\documentclass[10pt,a4paper,oneside,twocolumn,fleqn,dvipdfmx]{jarticle}
 
-% 電気系輪講用パッケージ
+\title{XXに関する調査\\ Survey of XX}
+\author{D1 37-xxxxxx Horifuji Taro}
+
+\usepackage{hyperref}
+\usepackage{pxjahyper}
+\hypersetup{
+    setpagesize=false,
+    bookmarksnumbered=true,
+    bookmarksopen=true,
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=black,
+}
+\setcounter{tocdepth}{4}
+\usepackage{color}
+\usepackage{graphicx}
+
+%電気系輪講用パッケージ
 \usepackage{dendentitle}
 
 %英字フォント
 \usepackage{times}
 \usepackage{booktabs}
-% 図の挿入
-\usepackage[dvipdfmx]{graphicx}
+
+%図の挿入
 \usepackage{subfigure}
-% 数式
+
+%数式
 \usepackage{amsmath}
 \usepackage{ascmac}
 \usepackage{pifont}
-% 余白調整
+
+%余白調整
 \usepackage{geometry}
 \geometry{left=25mm,right=25mm,top=30mm,bottom=30mm}
 
-
-%その他諸々 コメントアウト可
+%その他
 \usepackage{listings}
 \usepackage{url}
 \usepackage{multirow}
 \usepackage{latexsym}
 \usepackage{epsf}
-%\usepackage{docmute} %単体でコンパイルできるようにする
-\usepackage{mathtools} % dcases を使う
+\usepackage{mathtools}
 
-% ハイパーリンク用
-\usepackage[dvipdfmx, bookmarkstype=toc, colorlinks=false, pdfborder={0 0 0}, bookmarks=true, bookmarksnumbered=true]{hyperref}
-\usepackage{pxjahyper}
-
-
-%%%%%%% 便利マクロ  %%%%%%%%%%%%%%%%%%%%%%%%%%
+%便利マクロ
 \newcommand{\bm}[1]{\mbox{\boldmath $#1$}}
 \newcommand{\eq}[1]{Eq.(\ref{eq:#1})}
 \newcommand{\zu}[1]{図\ref{fig:#1}}
@@ -44,47 +53,33 @@ Survey on HFlab}
 \newcommand{\grp}[1]{Fig.\ \ref{grp:#1}}
 \newcommand{\tab}[1]{Table\ \ref{tab:#1}}
 \newcommand{\defeq}{:=}
-\newcommand{\bvec}[1]{\mbox{\boldmath $#1$}} %太字
-\newcommand{\tvec}[1]{\bvec{#1}^{\mathsf{T}}} %太字転置
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\bvec}[1]{\mbox{\boldmath $#1$}}
+\newcommand{\tvec}[1]{\bvec{#1}^{\mathsf{T}}}
 
-% 図のPath
+%図のPATH
 \graphicspath{{./fig/}}
 
+%西暦に変更
+\西暦
+
 \begin{document}
-\makedendentitle{D1 Survey}{Hori-Fujimoto Lab\\Department of Electrical Engineering }
+\makedendentitle{D1 Survey}{Hori-Fujimoto Lab\\Department of Electrical Engineering}
 
+\begin{abstract}
+    Write abstract here.
+\end{abstract}
 
-%
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\begin{abstract}
-%\end
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\maketitle
 
-%\begin{jkeyword}
-%装着型ロボット、外骨格ロボット、リハビリテーション
-%\end{jkeyword}
-%
-%\begin{ekeyword}
-%Wearable robot, Exoskeleton、Rehabilitation
-%\end{ekeyword}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\maketitle
 \section{序論}
-序論だよ。
+ここに序論を書く。
 
+\section{結論}
+ここに結論を書く。
 
-\section{まとめ}
-
-
-{\small
-\bibliographystyle{ieeetr}
-\bibliography{ref.bib}
-}
-%IEEEの自動化農業機械のHP。
-%\url{http://www.ieee-ras.org/agricultural-robotics}
-%小曽根淳、『紅毛流測量術の起源とその教育的、科学史的意義について』、2011年度科学研究費症例研究。研究課題番号：23909014
+\small
+%\bibliographystyle{IEEEtran}
+%\bibliography{ref}
+\normalsize
 
 \end{document}
