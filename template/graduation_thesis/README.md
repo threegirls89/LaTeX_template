@@ -1,4 +1,4 @@
-# Graduation Thesis Template
+# Thesis Template
 # 卒業論文・修士論文・博士論文テンプレート
 
 Last Edited by : 20180209 Masahiro Mae
