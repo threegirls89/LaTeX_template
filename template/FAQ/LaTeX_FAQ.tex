@@ -1,0 +1,127 @@
+\documentclass[10pt,a4paper,oneside,twocolumn,fleqn,dvipdfmx]{jsarticle}
+
+\usepackage{url}
+
+\title{{\LaTeX} FAQ}
+\author{Hori Fujimoto Lab}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{\TeX}
+堀・藤本研究室では、\TeX (読み方は、テフ、テックなど)という文章組版システムを用いて論文・資料作成を行います。
+組版とは、文章などのレイアウトを行うなどという意味です。
+\TeX は Microsoft Word や一太郎などのワープロソフトとは違い、ソースファイルを作成し、コンパイル、プレビューという手順を踏みます。
+その他の\TeX の特徴として以下のものが挙げられます。
+
+\begin{itemize}
+	\item  数式の出力が非常に綺麗で、高品質な組版が可能であること
+	\item 現存する様々な OS に移植されていること
+\end{itemize}
+
+ちなみに，正しい表記は``TeX''です。
+
+\subsection{\LaTeX とは}
+\TeX にはマクロ機能があり、\LaTeX とはこのマクロ機能を使って\TeX をより使いやすくしたものです。
+文書の体裁がある程度決まっている場合、マクロをそれ用に組んでおけば簡単に\TeX の文章を作成することができます。(例えばコンパイルが簡単にできるなど。)
+そのマクロの中でも特によく使われるものが \LaTeX です。
+このマニュアルも\LaTeX を用いて作ってあります。
+学会で論文発表する場合には、\TeX を使って論文を作成するのは必須です。
+必ず覚えて下さい。
+
+ちなみに，正しい表記は``LaTeX''です。
+
+\subsection{関連ファイルと基本的な内容}
+(注意)この内容は曖昧な記憶にもとづいています。
+大きな間違いは無いはずですが詳細な調査に基づく簡素な記述による更新が待たれます。
+
+\subsubsection*{.texファイル}
+文章の本体，本文が記述されているファイル。
+このファイルをplatexコマンドによりコンパイルすることで.pdfファイルの前身である.dviファイルが作成されます。
+\subsubsection*{.styファイル}
+スタイルファイルと呼ぶことが多い。
+パッケージや文書のレイアウト等の記述を行う。
+C言語でいうところのincludeするヘッダみたいなものか。
+\subsubsection*{.auxファイル}
+.tex中のref等の対応を記録しているファイル。
+\subsubsection*{.dviファイル}
+.texをコンパイルして出来るファイル。
+ここからdvip系のコマンドをうつことで.pdfに変換することが出来る。
+\subsubsection*{.bibファイル}
+参考文献のリストの情報を保存したファイル。
+これを用いることでbibriographyをいちいち書かずに済む。
+作成にはMendeley等の文献管理ソフトを併用するのが比較的便利。
+
+\subsection{pLatexを用いたコンパイルの基本的な流れ}
+後に説明するパッケージをインストールした後のコンパイルの流れは以下の通りです。
+\begin{enumerate}
+\item platexコマンドで.texファイルを.dviファイルに変換します。
+この際，refや参考文献等の情報をもった.auxファイルも同時に作成されます。
+\item この後，dvipdfmxコマンドを用いることでこの.dviファイルを.pdfファイルへと変換します。
+\end{enumerate}
+一般的には統合開発環境でこれらを制御するので直接これらのコマンドを触ることはあまりありませんが，覚えておいて損はないです。
+
+\section{\LaTeX のInstall}
+\LaTeX を制御するには様々なパッケージやソフトをインストールする必要があります。TeXLiveまたはW32TeX(Windowsのみ)をインストールしましょう。
+
+\subsection{TeXLive}
+\url{https://www.tug.org/texlive/}
+
+\subsection{W32TeX}
+\url{https://www.ms.u-tokyo.ac.jp/~abenori/soft/abtexinst.html}
+
+\section{推奨エディタ：TeXstudio}
+\url{http://texstudio.sourceforge.net/}
+
+上記のTeXインストーラを用いることでデフォルトでTeXworksというエディタが付属しますが，機能面などからTeXstudioをおすすめします。
+
+\subsection{SumatraPDF}
+\url{https://www.sumatrapdfreader.org/free-pdf-reader.html}
+
+デフォルトで入っているAdobeReaderでPDFを開くかと思いますが，LaTeXで文章を書く場合に至ってはSumatraPDFというフリーソフトをおすすめします。
+
+このソフトのAdobeに対する利点は主に以下の2点です。
+\begin{itemize}
+	\item 開いている.pdfファイルに対する変更を随時確認し，反映する。
+	\item .pdfをダブルクリックすることによる\TeX 文書の逆探索が可能である。
+\end{itemize}
+前者では，xxx.texという.texファイルをコンパイルしてxxx.pdfという.pdfファイルを作成する際，Adobe等によって.pdfファイルxxx.pdfを開いているとこれを更新できないという問題があります。SumatraPDFを使うことによりこの問題を回避することが出来ます。
+
+後者の機能は inverse search と呼ばれ，例えばxxx.pdfの変更したい部分をダブルクリックすることで該当する.tex ファイルxxx.texの該当位置を開くことが出来るという機能で文章の校正に非常に便利です。
+
+これらの機能はTeXstudioとの連携を通して確認することが出来ます。
+
+\section{FAQ}
+
+\LaTeX は1種のプログラミング言語ですので，きちんとしたルールに則って処理がなされています。従ってきちんとエラー文を読めば原因の箇所がわかる場合があります。裏を返すと意味のわからないエラーもよく出てきます。
+
+意味不明なエラーの場合，大体は「数式が閉じていなかったり，￥や＆が全角文字だったり，存在しない図を貼り付けていたり」などが原因です。
+
+ただ，エラー文などは常に意味のある事を言っているので，まずは自分でよく読解を試みて，Googleなどにエラー文を入れて検索した後に先輩に聞きましょう。電気系の学生を名乗ってパソコンを使って仕事をする以上，カレントディレクトリやpathの概念くらい等くらいは抑えて置くと今後も何かと役に立つかと思います。
+
+\subsection{cannot find xxx.sty ...}
+スタイルファイルがありませんということです。
+この場合，該当するstyファイルが「path上にない」ということですので，最も手っ取り早い解決法は.texがあるディレクトリに.styファイルを置くことです。
+PC内に見当たらない場合は検索してダウンロードする必要があります。
+
+発展としてpathの通ったところに.styファイルを置いて，mktexlsrコマンドを実行することで永続的にそのstyファイルへのアクセスを得ることが出来ます。
+
+\subsection{missing \$ inserted}
+よく見るエラーでいろいろな原因が考えられます。
+まずはエラーを吐いている文の前を注意深く確認してください。
+基本的にはドコかのequationが閉じていないのが原因です。
+解決策として
+\begin{itemize}
+	\item 数式内には全角文字をなるべく置かない
+	\item 全角の￥や＄，＆などで検索をかける
+\end{itemize}
+などが考えうるでしょう。
+
+\subsection{No bounding box ...}
+図のサイズが測れないというエラーです。
+これは，図そのものが存在しない（名前やディレクトリの間違い）か形式が不適切の２つの理由があります。
+また，graphicにdvipdfmxを用いていない場合等にも起きることがありますが本テンプレートを用いる限りにおいては問題ないかと思います。
+
+\end{document}
