@@ -4,10 +4,7 @@
 
 ## フォルダの説明
 
-## faq
-LaTeXに関する説明およびFAQ
-
-### common_preamble
+## common_preamble
 LaTeXのプリアンブルに用いるスタイルファイル例
 
 自分のプリアンブルファイルが洗練されてきたら
@@ -15,6 +12,9 @@ LaTeXのプリアンブルに用いるスタイルファイル例
 preamble_name.sty
 ```
 という名前で是非追加してください。
+
+## faq
+LaTeXに関する説明およびFAQ
 
 ## graduation_thesis
 卒業論文・修士論文・博士論文用のテンプレート
