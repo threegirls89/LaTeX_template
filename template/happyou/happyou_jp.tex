@@ -1,61 +1,32 @@
-\documentclass[a4paper,10pt,twocolumn,fleqn]{jarticle}
+\documentclass[10pt,a4paper,oneside,twocolumn,fleqn,dvipdfmx]{jsarticle}
 
 \usepackage{happyou}
-%%%%%%%%%%%%%% 余白調整 %%%%%%%%%%%%%%%
-\setlength{\textwidth}{180mm}
-\setlength{\columnsep}{10mm}
-\setlength{\textheight}{260mm}
-\setlength{\topmargin}{-45mm}
-\addtolength{\topmargin}{25mm}
-\setlength{\oddsidemargin}{-1in}
 
-\addtolength{\oddsidemargin}{16mm}
-\setlength{\evensidemargin}{-1in}
-\addtolength{\evensidemargin}{16mm}
+\usepackage{geometry}
+\geometry{left=25mm,right=25mm,top=25mm,bottom=25mm}
 
-
-%%%%%%%%%%%%% ヘッダとフッダ %%%%%%%%%%%%%
-\makeatletter
-\def\ps@myplain{%
- \let\@mkboth\@gobbletwo
- \def\@oddhead{ XX-happyou-\thepage} %奇数ページヘッダ，名前の前のスペースは消さないように
- \def\@oddfoot{ \thepage \ }%奇数ページフッタ
- \let\@evenhead\@oddhead %偶数ページヘッダ
- \let\@evenfoot\@oddfoot %偶数ページフッタ\@topnewpage
-}
-\makeatother
-\pagestyle{myplain} %ページスタイル
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%本文
 \begin{document}
-%\onecolumn
+
 \twocolumn[
 \begin{flushright}
-\today\\
-東京大学　堀藤本研究室　XX XX
+yyyy年mm月dd日\\
+東京大学 堀藤本研究室 堀藤 太郎
 \end{flushright}
-\begin{center}
-{\LARGE 発表用資料のテンプレート}
-\end{center}
+\centering{\LARGE{発表会＆報告会資料テンプレート}}
 \vspace{2zw}
 ]
 
 \section{序論}
+ここに序論を書く。
 
+\section{結論}
+ここに結論を書く。
 
-%%%%%%%%% 参考文献  %%%%%%%%%
-
+%参考文献
 \small
-%％％％    手動の場合
-%\begin{thebibliography}{9}
-%\bibitem{Dame2011} A. Dame and E. Marchand. :``A new information theoretic approach for appearance-based navigation of non-holonomic vehicle." Robotics and Automation (ICRA), 2011 IEEE International Conference on. IEEE, 2011.
-%\end{thebibliography}
-
-%bibtexを用いる（推奨）
-\bibliographystyle{tieice} %ieetranでも可。
-\bibliography{ref} %ref.bibを生成すること
-
+%\bibliographystyle{IEEEtran}
+%\bibliography{ref} %ref.bibを準備
 \normalsize
+
 \end{document}
- 
