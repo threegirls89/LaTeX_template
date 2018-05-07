@@ -14,8 +14,8 @@ LaTeXに関する説明およびFAQ
 ## houkoku
 報告会資料のテンプレート
 
-## ieeetran
-IEEETransactionのテンプレート
+## ieee
+IEEEのテンプレート
 
 ## ieej
 電気学会のテンプレート
