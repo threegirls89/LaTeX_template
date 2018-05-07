@@ -1,6 +1,18 @@
 \documentclass[10pt,a4paper,oneside,twocolumn,fleqn,dvipdfmx]{jsarticle}
 
-\usepackage{preamble}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{subfigure}
+\graphicspath{{./fig/}}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bm}
+
+\usepackage{siunitx}
+
+\newcommand{\eq}[1]{(\ref{eq:#1})}
+\newcommand{\fig}[1]{Fig.\ \ref{fig:#1}}
+\newcommand{\tab}[1]{Table\ \ref{tab:#1}}
 
 \usepackage{geometry}
 \geometry{left=25mm,right=25mm,top=25mm,bottom=25mm}
