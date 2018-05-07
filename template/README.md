@@ -1,6 +1,7 @@
 # Hori Fujimoto Lab LaTeX Template
 
 このテンプレートはpLaTeX環境を想定して作成してあります。
+各テンプレートのpreambleは最小限の構成になっているので足りない場合は適宜追加してください。
 
 ## フォルダの説明
 

@@ -52,7 +52,7 @@ Last Edited by : 20180209 Masahiro Mae
 ## thesisのtemplate_1と2のディレクトリ構成
 今のところこの構成がベストかと思っています。
 
-- template_1)
+- template_1 or 2
     - chapter
         - 各章のtexファイル
         - documuteによって個別コンパイルも可能
