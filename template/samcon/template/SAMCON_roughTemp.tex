@@ -4,15 +4,14 @@
 %% 2. template of the ``Extended Summary''
 
 %% 1. template of the paper and letter in English for IEEJ transactions
-\documentclass[english]{ieej-e-samcon}
+\documentclass[english,dvipdfmx]{ieej-e-samcon}
 
-
-\usepackage{preamble_en}
-
-
-
+\usepackage{graphicx}
+\usepackage{subfigure}
 \graphicspath{{../fig/}}
 
+\usepackage[varg]{txfonts}
+\newcommand{\bm}[1]{\mbox{\boldmath $#1$}}
 
 \YEAR{2017}
 \title{Titile Title}
@@ -46,16 +45,12 @@ Kewords
 \section{About Preamble}
 Prease add whatever package you want to use.
 When you add new package that is not installed in default tex options, please add sty files to following "stile file folders".
-\subsection{sty file  I added}
-\begin{itemize}
-	\item "algorithmic.sty" and "algorithm.sty" for explaining the algorithms.
-\end{itemize}
 
 \begin{thebibliography}{99}
 \item{} I recommend you to use .bib file to write these bibliography
 \end{thebibliography}
+
 %\appendix
 %\section{}
-
 
 \end{document}
