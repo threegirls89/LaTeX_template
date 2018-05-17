@@ -1,14 +1,15 @@
 \documentclass[10pt,a4paper,oneside,twocolumn,fleqn,dvipdfmx]{jsarticle}
 
-\usepackage[dvipdfmx]{graphicx}
+\usepackage{graphicx}
 \usepackage{subfigure}
 \graphicspath{{./fig/}}
 
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage{bm}
-
 \usepackage{siunitx}
+
+\usepackage[varg]{txfonts}
+\usepackage{bm}
 
 \newcommand{\eq}[1]{(\ref{eq:#1})}
 \newcommand{\fig}[1]{Fig.\ \ref{fig:#1}}
@@ -46,9 +47,7 @@
 ここに結論を書く。
 
 %参考文献
-\small
 \bibliographystyle{IEEEtran}
 \bibliography{ref} %ref.bibを準備
-\normalsize
 
 \end{document}
