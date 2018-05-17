@@ -1,5 +1,6 @@
-\documentclass[10pt,a4paper,oneside,twocolumn,fleqn,dvipdfmx]{jarticle}
+\documentclass[10pt,a4paper,oneside,twocolumn,fleqn,dvipdfmx]{jsarticle}
 
+% define usepackage
 \usepackage{hyperref}
 \usepackage{pxjahyper}
 \hypersetup{
@@ -11,6 +12,7 @@
     citecolor=black,
 }
 \setcounter{tocdepth}{4}
+
 \usepackage{color}
 
 \usepackage{graphicx}
@@ -41,28 +43,50 @@
 \usepackage{geometry}
 \geometry{left=25mm,right=25mm,top=30mm,bottom=30mm}
 
+% useful newcommand
 \newcommand{\eq}[1]{Eq.(\ref{eq:#1})}
-\newcommand{\zu}[1]{図\ref{fig:#1}}
 \newcommand{\fig}[1]{Fig.\ \ref{fig:#1}}
-\newcommand{\grp}[1]{Fig.\ \ref{grp:#1}}
 \newcommand{\tab}[1]{Table\ \ref{tab:#1}}
 
-% rinko package
-\usepackage{dendentitle}
+% maketitle setting
+\makeatletter
+\newcommand{\affiliation}[1]{\def\@affiliation{#1}}
+\newcommand{\documentname}[1]{\def\@documentname{#1}}
+\renewcommand{\maketitle}{
+    \centering{
+        \framebox[\linewidth]{
+            \parbox{\linewidth-2ex}{
+            \vskip 0.5ex
+            \@documentname \hfill {\@date}\\
+            \parbox{\linewidth-2ex}{
+                \vskip 2ex
+                \centering {\Large \bf \@title \par}
+                \vskip 2ex
+                }
+            \@affiliation \hfill \@author
+            }
+        }
+    }
+    \vskip 2ex
+    \ifvoid\@abstractbox\else\centerline{\box\@abstractbox}
+}
+\makeatother
 
-\title{XXに関する調査\\ Survey of XX}
-\author{D1 37-xxxxxx Horifuji Taro}
+% write document information here !
 \date{yyyy年mm月dd日}
+\title{日本語タイトル\\ English Title}
+\author{D1 37-000000 Horifuji Taro}
+\affiliation{Hori \& Fujimoto Laboratory\\Department of Electrical Engineering}
+\documentname{電気系輪講資料}
 
+% main document
 \begin{document}
 
-\makedendentitle{D1 Survey}{Hori-Fujimoto Lab\\Department of Electrical Engineering}
-
 \begin{abstract}
-    Write abstract here.
+Write abstract here.
 \end{abstract}
 
-\maketitle
+\twocolumn[\maketitle]
 
 \section{序論}
 ここに序論を書く。
