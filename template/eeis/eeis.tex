@@ -1,4 +1,5 @@
 \documentclass[10pt,a4paper,oneside,twocolumn,fleqn,dvipdfmx]{jsarticle}
+% twocolumn use only
 
 % usepackage
 \usepackage{hyperref}
@@ -33,6 +34,7 @@
 \usepackage{pifont}
 \usepackage{setspace}
 \usepackage{siunitx}
+\usepackage{textcomp}
 \usepackage{url}
 
 % font
@@ -48,27 +50,26 @@
 \newcommand{\fig}[1]{Fig.\ \ref{fig:#1}}
 \newcommand{\tab}[1]{Table\ \ref{tab:#1}}
 
-% maketitle setting
+% eeistitle setting
 \makeatletter
 \newcommand{\affiliation}[1]{\def\@affiliation{#1}}
 \newcommand{\documentname}[1]{\def\@documentname{#1}}
-\renewcommand{\maketitle}{
-    \centering{
-        \framebox[\linewidth]{
-            \parbox{\linewidth-2ex}{
-            \vskip 0.5ex
-            \@documentname \hfill {\@date}\\
-            \parbox{\linewidth-2ex}{
-                \vskip 2ex
-                \centering {\Large \bf \@title \par}
-                \vskip 2ex
+\newcommand{\eeistitle}{
+    \twocolumn[
+        \centering{
+            \framebox[\linewidth]{
+                \parbox{\linewidth-2ex}{
+                \@documentname\hfill\@date
+                \begin{center}
+                    \Large{\bf{\@title}}
+                \end{center}
+                \@affiliation \hfill \@author
                 }
-            \@affiliation \hfill \@author
             }
         }
-    }
-    \vskip 2ex
-    \ifvoid\@abstractbox\else\centerline{\box\@abstractbox}
+        \vskip 2ex
+        \ifvoid\@abstractbox\else\centerline{\box\@abstractbox}
+    ]
 }
 \makeatother
 
@@ -86,7 +87,7 @@
 Write abstract here.
 \end{abstract}
 
-\twocolumn[\maketitle]
+\eeistitle % use after abstract
 
 \section{序論}
 ここに序論を書く。
@@ -96,6 +97,6 @@ Write abstract here.
 
 % bibliography
 \bibliographystyle{IEEEtran}
-\bibliography{ref}
+\bibliography{ref} % use ref.bib
 
 \end{document}
