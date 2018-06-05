@@ -15,30 +15,47 @@
 \newcommand{\fig}[1]{Fig.\ \ref{fig:#1}}
 \newcommand{\tab}[1]{Table\ \ref{tab:#1}}
 
+% setting margin
 \usepackage{geometry}
-\geometry{left=25mm,right=25mm,top=25mm,bottom=25mm}
+\geometry{left=20mm,right=20mm,top=20mm,bottom=20mm}
 
-%本文
+% setting maketitle
+\makeatletter
+\newcommand{\documenttitle}[1]{\def\@documenttitle{#1}}
+\newcommand{\authorname}[1]{\def\@authorname{#1}}
+\newcommand{\affiliation}[1]{\def\@affiliation{#1}}
+\newcommand{\publishdate}[1]{\def\@publishdate{#1}}
+\title{\Huge{\@documenttitle}}
+\author{\Large{\@authorname}\\\@affiliation}
+\date{}
+\makeatother
+
+% setting fancyhdr
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\makeatletter
+\pagestyle{fancy}
+\lhead{}
+\rhead{\@publishdate{\,}-{\,}\@authorname{\,}-{\,}Page{\,}\thepage{\,}/{\,}\pageref{LastPage}}
+\cfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\makeatother
+
+% document information
+\documenttitle{発表タイトル}
+\authorname{堀藤 太郎}
+\affiliation{東京大学 堀藤本研究室}
+\publishdate{yyyy/mm/dd}
+
+% main
 \begin{document}
 
-\twocolumn[
-    \begin{flushright}
-        yyyy年mm月dd日\\
-        東京大学 堀藤本研究室\\
-        堀藤 太郎
-    \end{flushright}
-    \centering{
-        \LARGE{発表会タイトル}
-    }
-    \section*{
-	\centering{English Title}
-    }
-\raggedright{
-	\subsection*{Abstract}
-    Write abstract here.
-    }
-    \vspace{2ex}
-]
+\begin{abstract}
+    ここに概要を書く。
+\end{abstract}
+
+\maketitle
+\thispagestyle{fancy}
 
 \section{序論}
 ここに序論を書く。
@@ -46,8 +63,8 @@
 \section{結論}
 ここに結論を書く。
 
-%参考文献
+% bibliography
 \bibliographystyle{IEEEtran}
-\bibliography{ref} %ref.bibを準備
+\bibliography{ref.bib}
 
 \end{document}
