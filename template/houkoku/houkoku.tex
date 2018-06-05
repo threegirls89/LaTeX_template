@@ -1,4 +1,4 @@
-\documentclass[10pt,a4paper,oneside,onecolumn,fleqn,dvipdfmx]{jsarticle}
+\documentclass[10pt,a4paper,oneside,twocolumn,fleqn,dvipdfmx]{jsarticle}
 
 \usepackage{graphicx}
 \usepackage{subfigure}
@@ -15,51 +15,29 @@
 \newcommand{\fig}[1]{Fig.\ \ref{fig:#1}}
 \newcommand{\tab}[1]{Table\ \ref{tab:#1}}
 
-%マージン調整
-\setlength{\textwidth}{180mm}
-\setlength{\columnsep}{10mm}
-\setlength{\textheight}{260mm}
-\setlength{\topmargin}{-45mm}
-\addtolength{\topmargin}{25mm}
-\setlength{\oddsidemargin}{-1in}
-\addtolength{\oddsidemargin}{16mm}
-\setlength{\evensidemargin}{-1in}
-\addtolength{\evensidemargin}{16mm}
+\usepackage{geometry}
+\geometry{left=20mm,right=20mm,top=20mm,bottom=20mm}
 
-%報告書番号
-\newcommand{\Reportnum}[0]{1} %報告書番号
-
-\makeatletter
-\def\ps@myplain{
-\let\@mkboth\@gobbletwo
-\def\@oddhead{ name-report-\thepage} %奇数ページヘッダ(名前の前のスペースは消さない)
-\def\@oddfoot{ \thepage \ } %奇数ページフッタ
-\let\@evenhead\@oddhead %偶数ページヘッダ
-\let\@evenfoot\@oddfoot %偶数ページフッタ
-}
-\makeatother
-\pagestyle{myplain} %ページスタイル
-
-%本文
 \begin{document}
 
 \twocolumn[
-\begin{flushright}
-yyyy年mm月dd日\\
-東京大学 堀藤本研究室 名前
-\end{flushright}
-\centering{\LARGE{報告会 (\Reportnum)}}
-\vspace{2zw}
+    \begin{flushright}
+        yyyy年mm月dd日\\
+        東京大学 堀藤本研究室\\
+        堀藤 太郎
+    \end{flushright}
+    \centering{\LARGE{報告会}}
+    \vspace{4ex}
 ]
 
 \section{今回の報告}
 \begin{itemize}
-	\item 今回の報告1
+    \item 報告1
 \end{itemize}
 
 \section{今後の予定}
 \begin{itemize}
-	\item 今後の予定1
+    \item 予定1
 \end{itemize}
 
 \end{document}
