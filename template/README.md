@@ -11,17 +11,17 @@
 ## faq
 LaTeXに関する説明およびFAQ
 
-## happyou
-発表会資料のテンプレート
-
-## houkoku
-報告会資料のテンプレート
-
 ## ieee
 IEEEのテンプレート
 
 ## ieej
 電気学会のテンプレート
+
+## lab_meeting
+発表会資料のテンプレート
+
+## lab_reporting
+報告会資料のテンプレート
 
 ## preamble
 プリアンブルの.styファイルのサンプル
