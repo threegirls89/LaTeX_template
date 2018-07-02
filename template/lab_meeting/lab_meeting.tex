@@ -20,10 +20,13 @@
 \usepackage{subfigure}
 \graphicspath{{./fig/}}
 
-% font setting
+% usepackage setting
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{comment}
 \usepackage{siunitx}
+
+% font setting
 \usepackage[varg]{txfonts}
 \usepackage{bm}
 
@@ -75,8 +78,30 @@
 \section{結論}
 ここに結論を書く。
 
+% examples
+\begin{comment}
+
+% figure example
+\begin{figure}[t]
+\centering
+\includegraphics[width=1.0\linewidth]{figure_name.pdf}
+\caption{Figure Name.}
+\label{fig:fig_name}
+\end{figure}
+
+% subfigure example
+\begin{figure}[t]
+\centering
+\subfigure[Figure Name 1.]{\includegraphics[width=0.48\linewidth]{figure_name_1.pdf}\label{fig:fig_name_1}}
+\subfigure[Figure Name 2.]{\includegraphics[width=0.48\linewidth]{figure_name_2.pdf}\label{fig:fig_name_2}}
+\caption{Subfigure Name.}
+\label{fig:subfigure_name}
+\end{figure}
+
 % bibliography
 \bibliographystyle{IEEEtran}
 \bibliography{ref.bib}
+
+\end{comment}
 
 \end{document}
